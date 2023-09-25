@@ -40,6 +40,7 @@ const Home = () => {
     let re = /\S+@\S+\.\S+/;
     return re.test(email);
   }
+
   return (
     <div>
       <img src="https://img.freepik.com/vetores-gratis/blogar-divertido-criacao-de-conteudo-streaming-online-videoblog-jovem-fazendo-selfie-para-rede-social-compartilhando-feedback-estrategia-de-autopromocao-ilustracao-vetorial-de-metafora-de-conceito_335657-855.jpg"
@@ -106,7 +107,7 @@ const Home = () => {
           width: '50%',
           margin: '0 auto',
           marginBottom: '10px',
-          height: '30px',
+          backgroundColor: 'GrayText',
           font: 'large',
           textAlign: 'center',
           justifyContent: 'center'
