@@ -69,6 +69,7 @@ const Home = () => {
           type="text"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          placeholder="email"
           style={{
             display: 'flex',
             flexDirection: 'column',
