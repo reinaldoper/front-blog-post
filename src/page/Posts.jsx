@@ -1,13 +1,52 @@
 import { useEffect, useState } from "react";
 import { Post } from "../service/fetch";
 import { useNavigate } from "react-router-dom";
+import botao from '../assets/download.jpeg'
 
 const Posts = () => {
   const [user, setUser] = useState([]);
   const [msg, setMessage] = useState('');
+  const [content, setContent] = useState('');
+  const [title, setTitle] = useState('');
+  const [published, setPublished] = useState(false);
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
+    renderizaPosts();
+  }, []);
+
+  const publish = async () => {
+    const token = localStorage.getItem('token');
+    const options = {
+      method: "POST",
+      body: JSON.stringify({
+        title: title,
+        content: content,
+        published: published,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: token,
+      }
+    }
+    const response = async () => {
+      const { error } = await Post(options, 'post');
+      if (error) {
+        setError(error);
+      } else {
+        setTitle('');
+        setContent('');
+        setPublished(false);
+      }
+    }
+    response();
+    renderizaPosts();
+  };
+
+  
+
+  const renderizaPosts = async () => {
     const token = localStorage.getItem('token');
     const options = {
       method: "PATCH",
@@ -25,7 +64,8 @@ const Posts = () => {
       }
     }
     result();
-  }, []);
+  };
+
 
   const formatDate = (dateString) => {
     const data = new Date(dateString);
@@ -45,9 +85,9 @@ const Posts = () => {
       borderRadius: '5px 0',
       marginBottom: '50px',
     }}>
-      <li><h4 style={{backgroundColor: '#aebfaf',}}><em style={{backgroundColor: '#aebfaf',}}>{item.title}</em></h4></li>
-      <li><p style={{backgroundColor: '#aebfaf',}}>{item.content}</p></li>
-      <li style={{backgroundColor: '#aebfaf',}}>{formatDate(item.created)}</li>
+      <li><h4 style={{ backgroundColor: '#aebfaf', }}><em style={{ backgroundColor: '#aebfaf', }}>{item.title}</em></h4></li>
+      <li><p style={{ backgroundColor: '#aebfaf', }}>{item.content}</p></li>
+      <li style={{ backgroundColor: '#aebfaf', }}>{formatDate(item.created)}</li>
     </ul>
   ));
 
@@ -61,31 +101,88 @@ const Posts = () => {
       <button
         type="button"
         onClick={clickHome}
-        style={{
-          display: 'flex',
-          cursor: 'pointer',
-          width: '100px',
-          backgroundColor: 'GrayText',
-          padding: '0.5em 0.5em 0.5em',
-          borderRadius: '5px',
-          marginBottom: '10px',
-        }}
+        style={{ border: 'none' }}
       >
-        HOME
+        <img
+          src={botao}
+          alt="botão"
+          style={{
+            display: 'flex',
+            cursor: 'pointer',
+            width: '100px',
+            borderRadius: '5px',
+            marginBottom: '10px',
+            marginLeft: '0.5em',
+            marginTop: '0.5em',
+            outline: '0px auto -webkit-focus-ring-color',
+            outlineOffset: '0px',
+          }}
+        />
       </button>
-      <h1>All Posts published</h1>
-      {user.length > 0 ? <div style={{
-        backgroundColor: 'gray',
-        width: '30%',
-        padding: '10px',
-        borderRadius: '10px 0',
-        overflowY: 'auto',
-      }}>{resultUser}</div> : msg.length > 0 ? <div>{msg}</div> : <h1 style={{
-        display: 'flex',
-        margin: 'auto',
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}>Carregando</h1>}
+      <h1 style={{
+        display: 'flex', marginLeft: '0.5em',
+        marginTop: '0.5em',
+      }}>All Posts published</h1>
+      <div style={{ display: "flex" }}>
+        {user.length > 0 ? <div style={{
+          backgroundColor: 'gray',
+          width: '30%',
+          padding: '10px',
+          borderRadius: '10px 0',
+          overflowY: 'auto',
+          marginLeft: '0.5em',
+          marginTop: '0.5em',
+        }}>{resultUser}</div> : msg.length > 0 ? <div>{msg}</div> : <h1 style={{
+          display: 'flex',
+          margin: 'auto',
+          justifyContent: 'center',
+          alignItems: 'center'
+        }}>Carregando...</h1>}
+        {user.length > 0 ? <fieldset style={{
+          display: 'flex',
+          flexDirection: 'column',
+          textAlign: 'center',
+          justifyContent: 'center',
+          marginLeft: '0.5em',
+          border: '1px solid gray',
+          padding: '0.5em',
+          borderRadius: '5px',
+          backgroundColor: '#dedfc5'
+        }}>
+          <legend style={{ backgroundColor: '#dedfc5' }}>Deixe seu comentário:</legend>
+          <input type="text"
+            value={title}
+            placeholder="title"
+            onChange={(e) => setTitle(e.target.value)}
+            style={{
+              marginBottom: '0.5em',
+              border: '1px solid #3d423c',
+              backgroundColor: '#b2b39f',
+              borderRadius: '5px',
+              height: '30px',
+              textAlign: 'justify',
+            }}
+          />
+          <textarea value={content} cols="30" rows="10"
+            placeholder="No que está pensando?"
+            onChange={(e) => setContent(e.target.value)}
+            style={{ display: 'flex', backgroundColor: '#b2b39f', }}
+          >
+
+          </textarea>
+          <div style={{ backgroundColor: '#dedfc5' }}>
+            <input
+              type="checkbox"
+              value={published}
+              onClick={(e) => setPublished(e.target.checked)}
+              style={{ border: 'none', backgroundColor: '#dedfc5' }}
+            />
+            <label htmlFor="" style={{ marginLeft: '10px', backgroundColor: '#dedfc5' }}>published</label>
+          </div>
+          <button type="button" onClick={publish}>create</button>
+          {error.length > 0 ? <h4>{error}</h4> : null}
+        </fieldset> : null}
+      </div>
     </div>
   )
 }

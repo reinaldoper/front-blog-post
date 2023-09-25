@@ -124,7 +124,7 @@ const Home = () => {
         fontFamily: 'sans-serif',
         fontSize: '20px'
       }}>
-        <strong>
+        <strong style={{textAlign: 'justify'}}>
           Log com usuário para escrever seus pensamentos,
           título do texto descrevendo a idéia principal.
           Em poucas palavras deixe seu comentário, pensamentos etc.
