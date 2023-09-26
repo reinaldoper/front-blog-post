@@ -30,21 +30,19 @@ const Posts = () => {
         Authorization: token,
       }
     }
-    const response = async () => {
-      const { error } = await Post(options, 'post');
-      if (error) {
-        setError(error);
-      } else {
-        setTitle('');
-        setContent('');
-        setPublished(false);
-      }
+    const { error } = await Post(options, 'post');
+    if (error) {
+      setError(error);
+    } else {
+      setTitle('');
+      setContent('');
+      setPublished(false);
+      setError('');
     }
-    response();
     renderizaPosts();
   };
 
-  
+
 
   const renderizaPosts = async () => {
     const token = localStorage.getItem('token');
@@ -55,15 +53,13 @@ const Posts = () => {
         Authorization: token,
       }
     }
-    const result = async () => {
-      const { message, error } = await Post(options, 'post/published');
-      if (error) {
-        setMessage(error);
-      } if (message) {
-        setUser(message);
-      }
+
+    const { message, error } = await Post(options, 'post/published');
+    if (error) {
+      setMessage(error);
+    } if (message) {
+      setUser(message);
     }
-    result();
   };
 
 
@@ -84,6 +80,7 @@ const Posts = () => {
       color: 'black',
       borderRadius: '5px 0',
       marginBottom: '50px',
+      overflowY: 'auto',
     }}>
       <li><h4 style={{ backgroundColor: '#aebfaf', }}><em style={{ backgroundColor: '#aebfaf', }}>{item.title}</em></h4></li>
       <li><p style={{ backgroundColor: '#aebfaf', }}>{item.content}</p></li>
@@ -97,7 +94,14 @@ const Posts = () => {
   }
 
   return (
-    <div>
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      textAlign: 'center',
+      justifyContent: 'center',
+      margin: 'auto',
+      alignItems: 'center',
+    }}>
       <button
         type="button"
         onClick={clickHome}
@@ -125,11 +129,12 @@ const Posts = () => {
       }}>All Posts published</h1>
       <div style={{ display: "flex" }}>
         {user.length > 0 ? <div style={{
-          backgroundColor: 'gray',
-          width: '30%',
+          backgroundColor: '#6e9987',
+          width: '45em',
+          height: '700px',
           padding: '10px',
           borderRadius: '10px 0',
-          overflowY: 'auto',
+          overflowY: 'scroll',
           marginLeft: '0.5em',
           marginTop: '0.5em',
         }}>{resultUser}</div> : msg.length > 0 ? <div>{msg}</div> : <h1 style={{
@@ -138,50 +143,58 @@ const Posts = () => {
           justifyContent: 'center',
           alignItems: 'center'
         }}>Carregando...</h1>}
-        {user.length > 0 ? <fieldset style={{
-          display: 'flex',
-          flexDirection: 'column',
-          textAlign: 'center',
-          justifyContent: 'center',
-          marginLeft: '0.5em',
-          border: '1px solid gray',
-          padding: '0.5em',
-          borderRadius: '5px',
-          backgroundColor: '#dedfc5'
-        }}>
-          <legend style={{ backgroundColor: '#dedfc5' }}>Deixe seu comentário:</legend>
-          <input type="text"
-            value={title}
-            placeholder="title"
-            onChange={(e) => setTitle(e.target.value)}
-            style={{
-              marginBottom: '0.5em',
-              border: '1px solid #3d423c',
-              backgroundColor: '#b2b39f',
-              borderRadius: '5px',
-              height: '30px',
-              textAlign: 'justify',
-            }}
-          />
-          <textarea value={content} cols="30" rows="10"
-            placeholder="No que está pensando?"
-            onChange={(e) => setContent(e.target.value)}
-            style={{ display: 'flex', backgroundColor: '#b2b39f', }}
-          >
-
-          </textarea>
-          <div style={{ backgroundColor: '#dedfc5' }}>
-            <input
-              type="checkbox"
-              value={published}
-              onClick={(e) => setPublished(e.target.checked)}
-              style={{ border: 'none', backgroundColor: '#dedfc5' }}
+        <div style={{ marginTop: '8px' }}>
+          {user.length > 0 ? <fieldset style={{
+            display: 'flex',
+            flexDirection: 'column',
+            textAlign: 'center',
+            justifyContent: 'center',
+            marginLeft: '0.5em',
+            border: '1px solid gray',
+            padding: '0.5em',
+            borderRadius: '5px',
+            backgroundColor: '#6e9987'
+          }}>
+            <legend style={{ backgroundColor: '#6e9987' }}>Leave your comment:</legend>
+            <input type="text"
+              value={title}
+              placeholder="title"
+              onChange={(e) => setTitle(e.target.value)}
+              style={{
+                marginBottom: '0.5em',
+                border: '1px solid #3d423c',
+                backgroundColor: '#b2b39f',
+                borderRadius: '5px',
+                height: '30px',
+                textAlign: 'justify',
+              }}
             />
-            <label htmlFor="" style={{ marginLeft: '10px', backgroundColor: '#dedfc5' }}>published</label>
-          </div>
-          <button type="button" onClick={publish}>create</button>
-          {error.length > 0 ? <h4>{error}</h4> : null}
-        </fieldset> : null}
+            <textarea value={content} cols="30" rows="10"
+              placeholder="What are you thinking:"
+              onChange={(e) => setContent(e.target.value)}
+              style={{ display: 'flex', backgroundColor: '#b2b39f', }}
+            >
+
+            </textarea>
+            <div style={{ backgroundColor: '#6e9987' }}>
+              <input
+                type="checkbox"
+                value={published}
+                onClick={(e) => setPublished(e.target.checked)}
+                style={{ border: 'none', backgroundColor: '#dedfc5' }}
+              />
+              <label htmlFor="" style={{ marginLeft: '10px', backgroundColor: '#6e9987' }}>published</label>
+            </div>
+            <button type="button"
+              onClick={publish}
+              style={{
+                backgroundColor: '#114d4d',
+                color: 'white',
+                borderRadius: '5px',
+              }}>create</button>
+            {error.length > 0 ? <h4 style={{backgroundColor: '#6e9987'}}>{error}</h4> : null}
+          </fieldset> : null}
+        </div>
       </div>
     </div>
   )
