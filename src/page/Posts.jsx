@@ -156,6 +156,7 @@ const Posts = () => {
         display: 'flex', marginLeft: '0.5em',
         marginTop: '0.5em',
       }}>All Posts published</h1>
+      <hr style={{ width: '80%', margin: 'auto', marginTop: '10px' }} />
       <div style={{ display: "flex" }}>
         {user.length > 0 ? <div style={{
           backgroundColor: '#6e9987',
@@ -172,57 +173,61 @@ const Posts = () => {
           justifyContent: 'center',
           alignItems: 'center'
         }}>Carregando...</h1>}
-        <div style={{ marginTop: '8px' }}>
-          {user.length > 0 ? <fieldset style={{
-            display: 'flex',
-            flexDirection: 'column',
-            textAlign: 'center',
-            justifyContent: 'center',
-            marginLeft: '0.5em',
-            border: '1px solid gray',
-            padding: '0.5em',
-            borderRadius: '5px',
-            backgroundColor: '#6e9987'
-          }}>
-            <legend style={{ backgroundColor: '#6e9987' }}>Leave your comment:</legend>
-            <input type="text"
-              value={title}
-              placeholder="title"
-              onChange={(e) => setTitle(e.target.value)}
-              style={{
-                marginBottom: '0.5em',
-                border: '1px solid #3d423c',
-                backgroundColor: '#b2b39f',
-                borderRadius: '5px',
-                height: '30px',
-                textAlign: 'justify',
-              }}
-            />
-            <textarea value={content} cols="30" rows="10"
-              placeholder="What are you thinking:"
-              onChange={(e) => setContent(e.target.value)}
-              style={{ display: 'flex', backgroundColor: '#b2b39f', }}
-            >
-
-            </textarea>
-            <div style={{ backgroundColor: '#6e9987' }}>
-              <input
-                type="checkbox"
-                value={published}
-                onClick={(e) => setPublished(e.target.checked)}
-                style={{ border: 'none', backgroundColor: '#dedfc5' }}
+        <div style={{ marginTop: '8px'}}>
+          <details style={{marginLeft: '10px', fontSize: '25px' }}>
+            <summary>  Comment</summary>
+            {user.length > 0 ? <fieldset style={{
+              display: 'flex',
+              flexDirection: 'column',
+              textAlign: 'center',
+              justifyContent: 'center',
+              marginLeft: '0.5em',
+              border: '1px solid gray',
+              padding: '0.5em',
+              borderRadius: '5px',
+              backgroundColor: '#6e9987'
+            }}>
+              <legend style={{ backgroundColor: '#6e9987' }}>Leave your comment:</legend>
+              <input type="text"
+                value={title}
+                placeholder="title"
+                onChange={(e) => setTitle(e.target.value)}
+                style={{
+                  marginBottom: '0.5em',
+                  border: '1px solid #3d423c',
+                  backgroundColor: '#b2b39f',
+                  borderRadius: '5px',
+                  height: '30px',
+                  textAlign: 'justify',
+                }}
               />
-              <label htmlFor="" style={{ marginLeft: '10px', backgroundColor: '#6e9987' }}>published</label>
-            </div>
-            <button type="button"
-              onClick={publish}
-              style={{
-                backgroundColor: '#114d4d',
-                color: 'white',
-                borderRadius: '5px',
-              }}>create</button>
-            {error.length > 0 ? <h4 style={{ backgroundColor: '#6e9987' }}>{error}</h4> : null}
-          </fieldset> : null}
+              <textarea value={content} cols="30" rows="10"
+                placeholder="What are you thinking:"
+                onChange={(e) => setContent(e.target.value)}
+                style={{ display: 'flex', backgroundColor: '#b2b39f', }}
+              >
+
+              </textarea>
+              <div style={{ backgroundColor: '#6e9987' }}>
+                <input
+                  type="checkbox"
+                  value={published}
+                  onClick={(e) => setPublished(e.target.checked)}
+                  style={{ border: 'none', backgroundColor: '#dedfc5' }}
+                />
+                <label htmlFor="" style={{ marginLeft: '10px', backgroundColor: '#6e9987' }}>published</label>
+              </div>
+              <button type="button"
+                onClick={publish}
+                style={{
+                  backgroundColor: '#114d4d',
+                  color: 'white',
+                  borderRadius: '5px',
+                }}>create</button>
+              {error.length > 0 ? <h4 style={{ backgroundColor: '#6e9987' }}>{error}</h4> : null}
+            </fieldset> : null}
+          </details>
+
         </div>
       </div>
     </div>

@@ -7,6 +7,7 @@ import inscrever from '../assets/inscrever.png';
 const Home = () => {
   const [msg, setMessage] = useState('');
   const [email, setEmail] = useState('');
+  const [redirect, setRedirect] = useState(false);
   const navigate = useNavigate();
 
   const requeredToken = async () => {
@@ -14,6 +15,8 @@ const Home = () => {
       setMessage('Email is not valid.');
       setEmail('');
     } else {
+      setMessage('');
+      setRedirect(true);
       const options = {
         method: "PATCH",
         body: JSON.stringify({ email: email }),
@@ -24,6 +27,7 @@ const Home = () => {
 
       const { token, error } = await User(options, 'user/token');
       if (error) {
+        setRedirect(false);
         setMessage(error);
         setEmail('');
       } else if (token) {
@@ -107,7 +111,8 @@ const Home = () => {
             style={{
               display: 'flex',
               cursor: 'pointer',
-              width: '100px',
+              width: '5em',
+              height: '50px',
               borderRadius: '5px',
               marginBottom: '10px',
               marginLeft: '0.5em',
@@ -128,6 +133,17 @@ const Home = () => {
           textAlign: 'center',
           justifyContent: 'center'
         }}>{msg}</h2> : null}
+        {redirect ? <h1 style={{
+          display: 'flex',
+          flexDirection: 'column',
+          width: '50%',
+          margin: '0 auto',
+          marginBottom: '10px',
+          backgroundColor: 'GrayText',
+          font: 'large',
+          textAlign: 'center',
+          justifyContent: 'center'
+        }}>Carregando..</h1> : null}
       </div>
       <hr style={{ width: '50%', margin: 'auto', marginTop: '10px' }} />
       <p style={{

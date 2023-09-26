@@ -8,3 +8,12 @@ li{
   list-style: none;
 }
 
+summary{
+  list-style-type: '+';
+  color: #191970;
+}
+
+details[open] summary{
+  list-style-type: '-';
+}
+
