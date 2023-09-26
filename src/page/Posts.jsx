@@ -3,6 +3,7 @@ import { Post } from "../service/fetch";
 import { useNavigate } from "react-router-dom";
 import botao from '../assets/download.jpeg'
 import botaoDelet from '../assets/apagar.jpg';
+import click from '../assets/click.jpg';
 
 const Posts = () => {
   const [user, setUser] = useState([]);
@@ -98,6 +99,10 @@ const Posts = () => {
     navigate('/delete')
   }
 
+  const clickMyPost = () => {
+    navigate('/my-post')
+  }
+
   return (
     <div style={{
       display: 'flex',
@@ -136,6 +141,28 @@ const Posts = () => {
         >
           <img
             src={botaoDelet}
+            alt="botão"
+            style={{
+              display: 'flex',
+              cursor: 'pointer',
+              width: '90px',
+              height: '50px',
+              borderRadius: '5px',
+              marginBottom: '10px',
+              marginLeft: '0.5em',
+              marginTop: '0.5em',
+              outline: '0px auto -webkit-focus-ring-color',
+              outlineOffset: '0px',
+            }}
+          />
+        </button>
+        <button
+          type="button"
+          onClick={clickMyPost}
+          style={{ border: 'none' }}
+        >
+          <img
+            src={click}
             alt="botão"
             style={{
               display: 'flex',

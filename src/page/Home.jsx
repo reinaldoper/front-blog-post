@@ -34,6 +34,7 @@ const Home = () => {
         setMessage('');
         setEmail('');
         localStorage.setItem('token', token);
+        localStorage.setItem('email', email);
         navigate('/posts');
       }
     }
