@@ -2,6 +2,7 @@ import { useState } from "react"
 import { User } from "../service/fetch";
 import { useNavigate, Link } from "react-router-dom";
 import inscrever from '../assets/inscrever.png';
+import blog from '../assets/images.jpeg';
 
 
 const Home = () => {
@@ -157,11 +158,7 @@ const Home = () => {
         fontFamily: 'sans-serif',
         fontSize: '20px'
       }}>
-        <strong style={{ textAlign: 'justify' }}>
-          Log com usuário para escrever seus pensamentos,
-          título do texto descrevendo a idéia principal.
-          Em poucas palavras deixe seu comentário, pensamentos etc.
-        </strong>
+        <img src={blog} alt="blog" style={{borderRadius: '20px 0'}} />
 
       </p>
       <hr style={{ width: '50%', margin: 'auto', marginTop: '10px' }} />
