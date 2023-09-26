@@ -78,7 +78,8 @@ const MyPost = () => {
   const published = post.map((post) => (
     <div key={post.id} style={{ display: 'flex', width: '90%', marginTop: '7px', borderRadius: '10px 0' }}>
       {post.published ? <ol style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white', width: '90%', padding: '20px', borderRadius: '10px 0' }}>
-        <li style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>{post.title}</li>
+        <li><em style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>published</em></li>
+        <li><strong style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>{post.title}</strong></li>
         <li style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>{post.content}</li>
         <li style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>{formatDate(post.created)}</li>
         <li><button type="button" style={{ width: '100%', border: 'none' }} onClick={() => removePost(post.id)}>
@@ -91,7 +92,8 @@ const MyPost = () => {
   const notPublished = post.map((post) => (
     <div key={post.id} style={{ display: 'flex', width: '90%', marginTop: '17px', borderRadius: '10px 0' }}>
       {!post.published ? <ol style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white', width: '90%', padding: '20px', borderRadius: '10px 0' }}>
-        <li style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>{post.title}</li>
+        <li><em style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>not-published</em></li>
+        <li><strong style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>{post.title}</strong></li>
         <li style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>{post.content}</li>
         <li style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>{formatDate(post.created)}</li>
         <li><button type="button" style={{ width: '100%', border: 'none' }} onClick={() => removePost(post.id)}>
