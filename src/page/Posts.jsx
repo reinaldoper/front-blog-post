@@ -116,7 +116,7 @@ const Posts = () => {
         <button
           type="button"
           onClick={clickHome}
-          style={{ border: 'none' }}
+          style={{ border: 'none', borderRadius: '5px', marginTop: '0.5em' }}
         >
           <img
             src={botao}
@@ -127,7 +127,6 @@ const Posts = () => {
               width: '100px',
               borderRadius: '5px',
               marginBottom: '10px',
-              marginLeft: '0.5em',
               marginTop: '0.5em',
               outline: '0px auto -webkit-focus-ring-color',
               outlineOffset: '0px',
@@ -137,7 +136,7 @@ const Posts = () => {
         <button
           type="button"
           onClick={clickDelete}
-          style={{ border: 'none' }}
+          style={{ border: 'none', marginLeft: '3em', borderRadius: '5px', marginTop: '0.5em' }}
         >
           <img
             src={botaoDelet}
@@ -149,8 +148,7 @@ const Posts = () => {
               height: '50px',
               borderRadius: '5px',
               marginBottom: '10px',
-              marginLeft: '0.5em',
-              marginTop: '0.5em',
+              marginTop: '0.4em',
               outline: '0px auto -webkit-focus-ring-color',
               outlineOffset: '0px',
             }}
@@ -159,7 +157,7 @@ const Posts = () => {
         <button
           type="button"
           onClick={clickMyPost}
-          style={{ border: 'none' }}
+          style={{ border: 'none', marginLeft: '3em', borderRadius: '5px', marginTop: '0.5em' }}
         >
           <img
             src={click}
@@ -171,8 +169,7 @@ const Posts = () => {
               height: '50px',
               borderRadius: '5px',
               marginBottom: '10px',
-              marginLeft: '0.5em',
-              marginTop: '0.5em',
+              marginTop: '0.4em',
               outline: '0px auto -webkit-focus-ring-color',
               outlineOffset: '0px',
             }}
