@@ -200,8 +200,8 @@ const Posts = () => {
           justifyContent: 'center',
           alignItems: 'center'
         }}>Carregando...</h1>}
-        <div style={{ marginTop: '8px'}}>
-          <details style={{marginLeft: '10px', fontSize: '25px' }}>
+        <div style={{ marginTop: '8px' }}>
+          <details style={{ marginLeft: '30px', fontSize: '25px' }}>
             <summary>  Comment</summary>
             {user.length > 0 ? <fieldset style={{
               display: 'flex',
@@ -253,6 +253,16 @@ const Posts = () => {
                 }}>create</button>
               {error.length > 0 ? <h4 style={{ backgroundColor: '#6e9987' }}>{error}</h4> : null}
             </fieldset> : null}
+          </details>
+          <hr />
+          <details style={{ marginLeft: '0', fontSize: '25px' }}>
+            <summary>  Regras</summary>
+            <p style={{ marginLeft: '10px' }}>Todo e qualquer comentário <br /> ofencivo será excluido.</p>
+          </details>
+          <hr />
+          <details style={{ marginLeft: '0px', fontSize: '25px' }}>
+            <summary style={{ marginLeft: '70px', fontSize: '25px' }}>  Discriminação</summary>
+            <p style={{ marginLeft: '10px' }}>Comentários <br /> racistas serão excluidos.</p>
           </details>
 
         </div>
