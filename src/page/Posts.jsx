@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Post } from "../service/fetch";
 import { useNavigate } from "react-router-dom";
 import botao from '../assets/download.jpeg'
+import botaoDelet from '../assets/apagar.jpg';
 
 const Posts = () => {
   const [user, setUser] = useState([]);
@@ -93,6 +94,10 @@ const Posts = () => {
     navigate('/')
   }
 
+  const clickDelete = () => {
+    navigate('/delete')
+  }
+
   return (
     <div style={{
       display: 'flex',
@@ -102,27 +107,51 @@ const Posts = () => {
       margin: 'auto',
       alignItems: 'center',
     }}>
-      <button
-        type="button"
-        onClick={clickHome}
-        style={{ border: 'none' }}
-      >
-        <img
-          src={botao}
-          alt="botão"
-          style={{
-            display: 'flex',
-            cursor: 'pointer',
-            width: '100px',
-            borderRadius: '5px',
-            marginBottom: '10px',
-            marginLeft: '0.5em',
-            marginTop: '0.5em',
-            outline: '0px auto -webkit-focus-ring-color',
-            outlineOffset: '0px',
-          }}
-        />
-      </button>
+      <div>
+        <button
+          type="button"
+          onClick={clickHome}
+          style={{ border: 'none' }}
+        >
+          <img
+            src={botao}
+            alt="botão"
+            style={{
+              display: 'flex',
+              cursor: 'pointer',
+              width: '100px',
+              borderRadius: '5px',
+              marginBottom: '10px',
+              marginLeft: '0.5em',
+              marginTop: '0.5em',
+              outline: '0px auto -webkit-focus-ring-color',
+              outlineOffset: '0px',
+            }}
+          />
+        </button>
+        <button
+          type="button"
+          onClick={clickDelete}
+          style={{ border: 'none' }}
+        >
+          <img
+            src={botaoDelet}
+            alt="botão"
+            style={{
+              display: 'flex',
+              cursor: 'pointer',
+              width: '90px',
+              height: '50px',
+              borderRadius: '5px',
+              marginBottom: '10px',
+              marginLeft: '0.5em',
+              marginTop: '0.5em',
+              outline: '0px auto -webkit-focus-ring-color',
+              outlineOffset: '0px',
+            }}
+          />
+        </button>
+      </div>
       <h1 style={{
         display: 'flex', marginLeft: '0.5em',
         marginTop: '0.5em',
@@ -192,7 +221,7 @@ const Posts = () => {
                 color: 'white',
                 borderRadius: '5px',
               }}>create</button>
-            {error.length > 0 ? <h4 style={{backgroundColor: '#6e9987'}}>{error}</h4> : null}
+            {error.length > 0 ? <h4 style={{ backgroundColor: '#6e9987' }}>{error}</h4> : null}
           </fieldset> : null}
         </div>
       </div>

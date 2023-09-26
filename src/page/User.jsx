@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { User } from "../service/fetch";
+import login from '../assets/login.png';
 
 const Users = () => {
   const [email, setEmail] = useState('');
@@ -16,7 +17,7 @@ const Users = () => {
     } else {
       const options = {
         method: "POST",
-        body: JSON.stringify({ email: email, name: name}),
+        body: JSON.stringify({ email: email, name: name }),
         headers: {
           'Content-Type': 'application/json',
         }
@@ -115,7 +116,23 @@ const Users = () => {
         >
           Create
         </button>
-        <Link to='/' style={{ backgroundColor: 'GrayText', color: 'black' }}>Login</Link>
+        <Link to='/'
+          style={{ backgroundColor: 'GrayText', color: 'black' }}>
+          <img src={login}
+            alt="login"
+            style={{
+              display: 'flex',
+              cursor: 'pointer',
+              width: '100px',
+              borderRadius: '5px',
+              marginBottom: '10px',
+              marginLeft: '0.5em',
+              marginTop: '0.5em',
+              outline: '0px auto -webkit-focus-ring-color',
+              outlineOffset: '0px',
+            }}
+          />
+        </Link>
         {msg.length ? <h2 style={{
           display: 'flex',
           flexDirection: 'column',

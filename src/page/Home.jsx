@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { User } from "../service/fetch";
 import { useNavigate, Link } from "react-router-dom";
+import inscrever from '../assets/inscrever.png';
 
 
 const Home = () => {
@@ -100,7 +101,22 @@ const Home = () => {
         >
           Login
         </button>
-        <Link to='/users' style={{ backgroundColor: 'GrayText', color: 'black'}}>Create User</Link>
+        <Link to='/users' style={{ backgroundColor: 'GrayText', color: 'black' }}>
+          <img src={inscrever}
+            alt="inscrever"
+            style={{
+              display: 'flex',
+              cursor: 'pointer',
+              width: '100px',
+              borderRadius: '5px',
+              marginBottom: '10px',
+              marginLeft: '0.5em',
+              marginTop: '0.5em',
+              outline: '0px auto -webkit-focus-ring-color',
+              outlineOffset: '0px',
+            }}
+          />
+        </Link>
         {msg.length ? <h2 style={{
           display: 'flex',
           flexDirection: 'column',
@@ -124,7 +140,7 @@ const Home = () => {
         fontFamily: 'sans-serif',
         fontSize: '20px'
       }}>
-        <strong style={{textAlign: 'justify'}}>
+        <strong style={{ textAlign: 'justify' }}>
           Log com usuário para escrever seus pensamentos,
           título do texto descrevendo a idéia principal.
           Em poucas palavras deixe seu comentário, pensamentos etc.
