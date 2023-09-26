@@ -184,7 +184,7 @@ const Posts = () => {
       <div style={{ display: "flex" }}>
         {user.length > 0 ? <div style={{
           backgroundColor: '#6e9987',
-          width: '45em',
+          width: '45vw',
           height: '700px',
           padding: '10px',
           borderRadius: '10px 0',
@@ -209,7 +209,8 @@ const Posts = () => {
               border: '1px solid gray',
               padding: '0.5em',
               borderRadius: '5px',
-              backgroundColor: '#6e9987'
+              backgroundColor: '#6e9987',
+              width: '20vw',
             }}>
               <legend style={{ backgroundColor: '#6e9987' }}>Leave your comment:</legend>
               <input type="text"

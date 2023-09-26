@@ -76,7 +76,7 @@ const MyPost = () => {
   }
 
   const published = post.map((post) => (
-    <div key={post.id} style={{ display: 'flex', width: '30vw', marginTop: '7px', borderRadius: '10px 0' }}>
+    <div key={post.id} style={{ display: 'flex', width: '30vw', marginTop: '0.3em', borderRadius: '10px 0' }}>
       {post.published ? <ol style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white', width: '90%', padding: '20px', borderRadius: '10px 0' }}>
         <li><em style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>published</em></li>
         <li><strong style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>{post.title}</strong></li>
@@ -90,7 +90,7 @@ const MyPost = () => {
   ));
 
   const notPublished = post.map((post) => (
-    <div key={post.id} style={{ display: 'flex', width: '30vw', marginTop: '2px', borderRadius: '10px 0' }}>
+    <div key={post.id} style={{ display: 'flex', width: '30vw', marginTop: '0.3em', borderRadius: '10px 0' }}>
       {!post.published ? <ol style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white', width: '90%', padding: '20px', borderRadius: '10px 0' }}>
         <li><em style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>not-published</em></li>
         <li><strong style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>{post.title}</strong></li>
