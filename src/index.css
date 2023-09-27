@@ -1,7 +1,7 @@
 
 body{
   margin: 0;
-  background-image: url('https://i.pinimg.com/564x/23/c7/1d/23c71d78b37d1ef9dfdb3d6ffd9d6243.jpg');
+  background-image: url('https://cdn.pixabay.com/photo/2016/09/29/13/08/planet-1702788_1280.jpg');
   background-size: cover;
   height: 100hw;
   background-repeat: no-repeat;
@@ -13,7 +13,7 @@ li{
 
 summary{
   list-style-type: '+';
-  color: #080808;
+  color: #f7f4f4;
 }
 
 details[open] summary{

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Post } from "../service/fetch";
 import { useNavigate } from "react-router-dom";
 import botao from '../assets/download.jpeg'
-import botaoDelet from '../assets/apagar.jpg';
+import botaoUpdate from '../assets/update.png';
 import click from '../assets/click.jpg';
 
 const Posts = () => {
@@ -83,6 +83,7 @@ const Posts = () => {
       borderRadius: '5px 0',
       marginBottom: '50px',
       overflowY: 'auto',
+      boxShadow: '5px 5px 10px #063940' 
     }}>
       <li><h4 style={{ backgroundColor: '#aebfaf', }}><em style={{ backgroundColor: '#aebfaf', }}>{item.title}</em></h4></li>
       <li><p style={{ backgroundColor: '#aebfaf', }}>{item.content}</p></li>
@@ -95,8 +96,8 @@ const Posts = () => {
     navigate('/')
   }
 
-  const clickDelete = () => {
-    navigate('/delete')
+  const clickUpdate = () => {
+    navigate('/update')
   }
 
   const clickMyPost = () => {
@@ -107,6 +108,7 @@ const Posts = () => {
     <div style={{
       display: 'flex',
       flexDirection: 'column',
+      flexWrap: 'wrap',
       textAlign: 'center',
       justifyContent: 'center',
       margin: 'auto',
@@ -135,11 +137,11 @@ const Posts = () => {
         </button>
         <button
           type="button"
-          onClick={clickDelete}
+          onClick={clickUpdate}
           style={{ border: 'none', marginLeft: '3em', borderRadius: '5px', marginTop: '0.5em' }}
         >
           <img
-            src={botaoDelet}
+            src={botaoUpdate}
             alt="botão"
             style={{
               display: 'flex',
@@ -180,7 +182,7 @@ const Posts = () => {
         display: 'flex', marginLeft: '0.5em',
         marginTop: '0.5em',
       }}>All Posts published</h1>
-      <hr style={{ width: '80%', margin: 'auto', marginTop: '10px' }} />
+      <hr style={{ width: '80%', margin: 'auto', marginTop: '10px', color: 'black' }} />
       <div style={{ display: "flex" }}>
         {user.length > 0 ? <div style={{
           backgroundColor: '#6e9987',
@@ -252,12 +254,12 @@ const Posts = () => {
               {error.length > 0 ? <h4 style={{ backgroundColor: '#6e9987' }}>{error}</h4> : null}
             </fieldset> : null}
           </details>
-          <hr />
+          <hr style={{color: 'white'}} />
           <details style={{ marginLeft: '0', fontSize: '25px' }}>
             <summary>  Regras</summary>
             <p style={{ marginLeft: '10px' }}>Todo e qualquer comentário <br /> ofencivo será excluido.</p>
           </details>
-          <hr />
+          <hr style={{color: 'white'}} />
           <details style={{ marginLeft: '0px', fontSize: '25px' }}>
             <summary style={{ marginLeft: '70px', fontSize: '25px' }}>  Discriminação</summary>
             <p style={{ marginLeft: '10px' }}>Comentários <br /> racistas serão excluidos.</p>

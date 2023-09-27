@@ -147,7 +147,7 @@ const Home = () => {
           justifyContent: 'center'
         }}>Carregando..</h1> : null}
       </div>
-      <hr style={{ width: '50%', margin: 'auto', marginTop: '10px' }} />
+      <hr style={{ width: '50%', margin: 'auto', marginTop: '10px', color: 'white' }} />
       <p style={{
         display: 'flex',
         width: '25%',
@@ -161,7 +161,7 @@ const Home = () => {
         <img src={blog} alt="blog" style={{borderRadius: '20px 0'}} />
 
       </p>
-      <hr style={{ width: '50%', margin: 'auto', marginTop: '10px' }} />
+      <hr style={{ width: '50%', margin: 'auto', marginTop: '10px', color: 'white' }} />
     </div>
   )
 }
