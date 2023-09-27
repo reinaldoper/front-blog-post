@@ -76,7 +76,7 @@ const MyPost = () => {
   }
 
   const published = post.map((post) => (
-    <div key={post.id} style={{ display: 'flex', width: '30vw', marginTop: '0.3em', borderRadius: '10px 0' }}>
+    <div key={post.id} style={{ display: 'flex', justifyContent: 'center', width: '30vw', marginTop: '0.3em', borderRadius: '10px 0' }}>
       {post.published ? <ol style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white', width: '90%', padding: '20px', borderRadius: '10px 0' }}>
         <li><em style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>published</em></li>
         <li><strong style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>{post.title}</strong></li>
@@ -90,7 +90,7 @@ const MyPost = () => {
   ));
 
   const notPublished = post.map((post) => (
-    <div key={post.id} style={{ display: 'flex', width: '30vw', marginTop: '0.3em', borderRadius: '10px 0' }}>
+    <div key={post.id} style={{ display: 'flex', justifyContent: 'center', width: '30vw', marginTop: '0.3em', borderRadius: '10px 0' }}>
       {!post.published ? <ol style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white', width: '90%', padding: '20px', borderRadius: '10px 0' }}>
         <li><em style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>not-published</em></li>
         <li><strong style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>{post.title}</strong></li>
@@ -123,8 +123,8 @@ const MyPost = () => {
         border: 'none',
       }}>posts</button>
       <div style={{ display: 'flex', margin: 'auto', textAlign: 'justify', justifyContent: 'center' }}>
-        {user ? <div>{published}</div> : null}
-        {user ? <div>{notPublished}</div> : null}
+        {user ? <div style={{display: 'flex', marginTop: '10px', flexDirection: 'column', overflowY: 'scroll', height: '750px', backgroundColor: 'GrayText'}}>{published}</div> : null}
+        {user ? <div style={{display: 'flex', marginTop: '10px', flexDirection: 'column', overflowY: 'scroll', height: '750px', backgroundColor: 'GrayText'}}>{notPublished}</div> : null}
       </div>
       {error ? <div style={{ display: 'flex', justifyContent: 'center' }}>{error}</div> : null}
       {userid ? <div style={{ display: 'flex', justifyContent: 'center' }}>{msg}</div> : null}

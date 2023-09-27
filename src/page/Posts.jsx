@@ -212,7 +212,7 @@ const Posts = () => {
               backgroundColor: '#6e9987',
               width: '20vw',
             }}>
-              <legend style={{ backgroundColor: '#6e9987' }}>Leave your comment:</legend>
+              <legend style={{ backgroundColor: '#6e9987', display: 'flex', justifyContent: 'center' }}>Leave your comment:</legend>
               <input type="text"
                 value={title}
                 placeholder="title"
@@ -233,14 +233,14 @@ const Posts = () => {
               >
 
               </textarea>
-              <div style={{ backgroundColor: '#6e9987' }}>
+              <div style={{display: 'flex', justifyContent: 'center', backgroundColor: '#6e9987',flexWrap: 'wrap' }}>
                 <input
                   type="checkbox"
                   value={published}
                   onClick={(e) => setPublished(e.target.checked)}
                   style={{ border: 'none', backgroundColor: '#dedfc5' }}
                 />
-                <label htmlFor="" style={{ marginLeft: '10px', backgroundColor: '#6e9987' }}>published</label>
+                <label htmlFor="" style={{display: 'flex', marginLeft: '10px', backgroundColor: '#6e9987' }}>published</label>
               </div>
               <button type="button"
                 onClick={publish}
