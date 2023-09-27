@@ -171,6 +171,7 @@ const UpdatePost = () => {
         display: 'flex',
         margin: 'auto',
         justifyContent: 'center',
+        color: 'white',
       }}>Update Post</h3>
       <button type="button" onClick={returnPost} style={{
         display: 'flex',
@@ -188,7 +189,7 @@ const UpdatePost = () => {
       </div>
       {error ? <div style={{ display: 'flex', justifyContent: 'center' }}>{error}</div> : null}
       {newUserid ? <div style={{ display: 'flex', justifyContent: 'center' }}>{newUser}</div> : null}
-      {post.length > 0 ? null : <h1 style={{ display: 'flex', justifyContent: 'center' }}>Carregando...</h1>}
+      {post.length > 0 ? null : <h1 style={{ display: 'flex', justifyContent: 'center', color: 'white' }}>Carregando...</h1>}
     </div>
   )
 }

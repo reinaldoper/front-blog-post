@@ -172,8 +172,9 @@ const Posts = () => {
       <h1 style={{
         display: 'flex', marginLeft: '0.5em',
         marginTop: '0.5em',
+        color: 'white',
       }}>All Posts published</h1>
-      <hr style={{ width: '80%', margin: 'auto', marginTop: '10px', color: 'black' }} />
+      <hr style={{ width: '80%', margin: 'auto', marginTop: '10px', color: 'white' }} />
       <div style={{ display: "flex" }}>
         {user.length > 0 ? <div style={{
           backgroundColor: '#6e9987',
@@ -188,7 +189,8 @@ const Posts = () => {
           display: 'flex',
           margin: 'auto',
           justifyContent: 'center',
-          alignItems: 'center'
+          alignItems: 'center',
+          color: 'white',
         }}>Carregando...</h1>}
         <div style={{ marginTop: '8px' }}>
           <details style={{ marginLeft: '30px', fontSize: '25px' }}>
