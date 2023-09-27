@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import { User, Post } from "../service/fetch";
 import remove from '../assets/remove.png';
 import { useNavigate } from "react-router-dom";
+import formatDate from "../uteis/formateData";
 
 const MyPost = () => {
   const [post, setPost] = useState([]);
@@ -64,17 +65,7 @@ const MyPost = () => {
 
   }
 
-  const formatDate = (dateString) => {
-    const data = new Date(dateString);
-    const dia = String(data.getUTCDate()).padStart(2, '0');
-    const mes = String(data.getUTCMonth() + 1).padStart(2, '0');
-    const ano = data.getUTCFullYear();
-    const hora = String(data.getUTCHours()).padStart(2, '0');
-    const minuto = String(data.getUTCMinutes()).padStart(2, '0');
-    const segundo = String(data.getUTCSeconds()).padStart(2, '0');
-    return `${dia}/${mes}/${ano} ${hora}:${minuto}:${segundo}`;
-  }
-
+  
   const published = post.map((post) => (
     <div key={post.id} style={{ display: 'flex', justifyContent: 'center', width: '30vw', marginTop: '0.3em', borderRadius: '10px 0' }}>
       {post.published ? <ol style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white', width: '90%', padding: '20px', borderRadius: '10px 0', boxShadow: '5px 5px 10px #063940' }}>
