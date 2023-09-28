@@ -74,7 +74,7 @@ const Posts = () => {
       borderRadius: '5px 0',
       marginBottom: '50px',
       overflowY: 'auto',
-      boxShadow: '5px 5px 10px #063940' 
+      boxShadow: '5px 5px 10px #063940'
     }}>
       <li><h4 style={{ backgroundColor: '#aebfaf', }}><em style={{ backgroundColor: '#aebfaf', }}>{item.title}</em></h4></li>
       <li><p style={{ backgroundColor: '#aebfaf', }}>{item.content}</p></li>
@@ -105,7 +105,7 @@ const Posts = () => {
       margin: 'auto',
       alignItems: 'center',
     }}>
-      <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between'}}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
         <button
           type="button"
           onClick={clickHome}
@@ -170,29 +170,30 @@ const Posts = () => {
         </button>
       </div>
       <hr style={{ width: '80%', margin: 'auto', marginTop: '10px', color: 'white' }} />
-      <h1 style={{
+      <h1 className="all" style={{
         display: 'flex', marginLeft: '0.5em',
         marginTop: '0.5em',
         color: 'white',
       }}>All Posts published</h1>
       <hr style={{ width: '80%', margin: 'auto', marginTop: '10px', color: 'white' }} />
-      <div style={{ display: "flex" }}>
-        {user.length > 0 ? <div style={{
-          backgroundColor: '#6e9987',
-          width: '45vw',
-          height: '700px',
-          padding: '10px',
-          borderRadius: '10px 0',
-          overflowY: 'scroll',
-          marginLeft: '0.5em',
-          marginTop: '0.5em',
-        }}>{resultUser}</div> : msg.length > 0 ? <div>{msg}</div> : <h1 style={{
-          display: 'flex',
-          margin: 'auto',
-          justifyContent: 'center',
-          alignItems: 'center',
-          color: 'white',
-        }}>Carregando...</h1>}
+      <div style={{ display: "flex" }} className="blogs">
+        {user.length > 0 ? <div className="results"
+          style={{
+            backgroundColor: '#6e9987',
+            width: '45vw',
+            height: '700px',
+            padding: '10px',
+            borderRadius: '10px 0',
+            overflowY: 'scroll',
+            marginLeft: '0.5em',
+            marginTop: '0.5em',
+          }}>{resultUser}</div> : msg.length > 0 ? <div>{msg}</div> : <h1 style={{
+            display: 'flex',
+            margin: 'auto',
+            justifyContent: 'center',
+            alignItems: 'center',
+            color: 'white',
+          }}>Carregando...</h1>}
         <div style={{ marginTop: '8px' }}>
           <details style={{ marginLeft: '30px', fontSize: '25px' }}>
             <summary>  Comment</summary>
@@ -229,14 +230,14 @@ const Posts = () => {
               >
 
               </textarea>
-              <div style={{display: 'flex', justifyContent: 'center', backgroundColor: '#6e9987',flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', justifyContent: 'center', backgroundColor: '#6e9987', flexWrap: 'wrap' }}>
                 <input
                   type="checkbox"
                   value={published}
                   onClick={(e) => setPublished(e.target.checked)}
                   style={{ border: 'none', backgroundColor: '#dedfc5' }}
                 />
-                <label htmlFor="" style={{display: 'flex', marginLeft: '10px', backgroundColor: '#6e9987' }}>published</label>
+                <label htmlFor="" style={{ display: 'flex', marginLeft: '10px', backgroundColor: '#6e9987' }}>published</label>
               </div>
               <button type="button"
                 onClick={publish}
@@ -248,14 +249,14 @@ const Posts = () => {
               {error.length > 0 ? <h4 style={{ backgroundColor: '#6e9987' }}>{error}</h4> : null}
             </fieldset> : null}
           </details>
-          <hr style={{color: 'white'}} />
+          <hr style={{ color: 'white' }} />
           <details style={{ marginLeft: '0', fontSize: '25px' }}>
             <summary>  Regras</summary>
             <p style={{ marginLeft: '10px' }}>Todo e qualquer comentário <br /> ofencivo será excluido.</p>
           </details>
-          <hr style={{color: 'white'}} />
+          <hr style={{ color: 'white' }} />
           <details style={{ marginLeft: '0px', fontSize: '25px' }}>
-            <summary style={{ marginLeft: '70px', fontSize: '25px' }}>  Discriminação</summary>
+            <summary style={{ marginLeft: '70px', fontSize: '25px' }} className="discriminacao">  Discriminação</summary>
             <p style={{ marginLeft: '10px' }}>Comentários <br /> racistas serão excluidos.</p>
           </details>
 

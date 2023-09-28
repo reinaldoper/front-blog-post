@@ -35,5 +35,33 @@ details[open] summary{
   .img-0{
     margin: auto;
   }
+  .blogs{
+    display: flex;
+    flex-direction: column;
+  }
+  .results{
+    width: 100%;
+    margin: auto;
+    align-items: center;
+    text-align: center;
+  }
+  .all{
+    font-size: small;
+  }
+  summary{
+    font-size: small;
+  }
+  fieldset{
+    width: 100%;
+    font-size: small;
+  }
+  .discriminacao{
+    width: 100%;
+    font-size: small;
+  }
+  legend{
+    width: 100%;
+    font-size: small;
+  }
 }
 
