@@ -108,14 +108,15 @@ const UpdatePost = () => {
           <div>
             <input type="text"
               value={title}
-              style={{ display: 'flex', height: '20%', backgroundColor: '#8e8ca3', borderRadius: '5px', width: '100%' }}
+              style={{ display: 'flex', height: '5vh', backgroundColor: '#8e8ca3', borderRadius: '5px', width: '100%' }}
               onChange={(e) => setTitle(e.target.value)}
             />
             <button type="button"
               style={{
                 display: 'flex',
-                height: '15%',
+                height: '5vh',
                 marginTop: '3%',
+                marginBottom: '3%',
                 justifyContent: 'center',
                 width: '100%', backgroundColor: '#7345d6', borderRadius: '5px'
               }}
@@ -146,14 +147,15 @@ const UpdatePost = () => {
           <div>
             <input type="text"
               value={title}
-              style={{ display: 'flex', height: '20%', backgroundColor: '#8e8ca3', borderRadius: '5px', width: '100%' }}
+              style={{ display: 'flex', height: '5vh', backgroundColor: '#8e8ca3', borderRadius: '5px', width: '100%' }}
               onChange={(e) => setTitle(e.target.value)}
             />
             <button type="button"
               style={{
                 display: 'flex',
-                height: '15%',
                 marginTop: '3%',
+                marginBottom: '3%',
+                height: '5vh',
                 justifyContent: 'center', backgroundColor: '#7345d6', borderRadius: '5px',
                 width: '100%'
               }}
