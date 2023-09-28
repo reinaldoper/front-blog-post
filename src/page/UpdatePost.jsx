@@ -3,6 +3,7 @@ import { User, Post } from "../service/fetch";
 import remove from '../assets/update.png';
 import { useNavigate } from "react-router-dom";
 import formatDate from "../uteis/formateData";
+import { CgComment } from "react-icons/cg";
 
 const UpdatePost = () => {
   const [post, setPost] = useState([]);
@@ -94,6 +95,7 @@ const UpdatePost = () => {
   const published = post.map((post) => (
     <div key={post.id} style={{ display: 'flex', justifyContent: 'center', width: '30vw', marginTop: '0.3em', borderRadius: '10px 0' }}>
       {post.published ? <ol style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white', width: '90%', padding: '20px', borderRadius: '10px 0', boxShadow: '5px 5px 10px #063940' }}>
+        <CgComment />
         <li><em style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>published</em></li>
         <li><strong style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>{post.title}</strong></li>
         <li style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>{post.content}</li>
@@ -131,6 +133,7 @@ const UpdatePost = () => {
   const notPublished = post.map((post) => (
     <div key={post.id} style={{ display: 'flex', justifyContent: 'center', width: '30vw', marginTop: '0.3em', borderRadius: '10px 0' }}>
       {!post.published ? <ol style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white', width: '90%', padding: '20px', borderRadius: '10px 0', boxShadow: '5px 5px 10px #063940' }}>
+        <CgComment />
         <li><em style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>not-published</em></li>
         <li><strong style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>{post.title}</strong></li>
         <li style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>{post.content}</li>
@@ -188,7 +191,7 @@ const UpdatePost = () => {
       {user ? <>{post.length > 0 ? <div style={{ display: 'flex', margin: 'auto', textAlign: 'justify', justifyContent: 'center' }}>
         {user ? <div style={{ display: 'flex', marginTop: '10px', flexDirection: 'column', overflowY: 'scroll', height: '750px', backgroundColor: 'GrayText', borderRadius: '8px' }}>{published}</div> : null}
         {user ? <div style={{ display: 'flex', marginTop: '10px', flexDirection: 'column', overflowY: 'scroll', height: '750px', backgroundColor: 'GrayText', borderRadius: '8px' }}>{notPublished}</div> : null}
-      </div>: <h1 style={{display: 'flex', color: 'white', justifyContent: 'center', marginTop: '10%'}}>You not have post published.</h1>}</> : <h1 style={{ display: 'flex', justifyContent: 'center', color: 'white' }}>Carregando...</h1>}
+      </div> : <h1 style={{ display: 'flex', color: 'white', justifyContent: 'center', marginTop: '10%' }}>You not have post published.</h1>}</> : <h1 style={{ display: 'flex', justifyContent: 'center', color: 'white' }}>Carregando...</h1>}
       {error ? <div style={{ display: 'flex', justifyContent: 'center' }}>{error}</div> : null}
       {newUserid ? <div style={{ display: 'flex', justifyContent: 'center' }}>{newUser}</div> : null}
     </div>

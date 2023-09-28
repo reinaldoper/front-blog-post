@@ -5,6 +5,9 @@ import botao from '../assets/download.jpeg'
 import botaoUpdate from '../assets/update.png';
 import click from '../assets/delete.png';
 import formatDate from "../uteis/formateData";
+import { TbAlignCenter } from "react-icons/tb";
+import { CgComment } from "react-icons/cg";
+
 
 const Posts = () => {
   const [user, setUser] = useState([]);
@@ -76,6 +79,7 @@ const Posts = () => {
       overflowY: 'auto',
       boxShadow: '5px 5px 10px #063940'
     }}>
+      <CgComment />
       <li><h4 style={{ backgroundColor: '#aebfaf', }}><em style={{ backgroundColor: '#aebfaf', }}>{item.title}</em></h4></li>
       <li><p style={{ backgroundColor: '#aebfaf', }}>{item.content}</p></li>
       <li style={{ backgroundColor: '#aebfaf', }}>{formatDate(item.created)}</li>
@@ -209,7 +213,7 @@ const Posts = () => {
               backgroundColor: '#6e9987',
               width: '20vw',
             }}>
-              <legend style={{ backgroundColor: '#6e9987', display: 'flex', justifyContent: 'center' }}>Leave your comment:</legend>
+              <legend style={{ backgroundColor: '#6e9987', display: 'flex', justifyContent: 'center' }}><TbAlignCenter /></legend>
               <input type="text"
                 value={title}
                 placeholder="title"
