@@ -4,6 +4,7 @@ import Posts from "./page/Posts";
 import User from "./page/User";
 import UpdatePost from "./page/UpdatePost";
 import MyPost from "./page/MyPost";
+import UpdateUser from "./page/UpdateUser";
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Route path="/users" element={<User/>} />
         <Route path="/update" element={<UpdatePost/>} />
         <Route path="/my-post" element={<MyPost/>} />
+        <Route path="/update-user" element={<UpdateUser/>} />
       </Routes>
     </>
   )

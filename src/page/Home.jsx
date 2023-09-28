@@ -3,6 +3,7 @@ import { User } from "../service/fetch";
 import { useNavigate, Link } from "react-router-dom";
 import inscrever from '../assets/inscrever.png';
 import blog from '../assets/images.jpeg';
+import updateUser from '../assets/update.png';
 
 
 const Home = () => {
@@ -124,6 +125,23 @@ const Home = () => {
             }}
           />
         </Link>
+        <Link to='/update-user' style={{ backgroundColor: 'GrayText', color: 'black' }}>
+          <img src={updateUser}
+            alt="updateUser"
+            style={{
+              display: 'flex',
+              cursor: 'pointer',
+              width: '5em',
+              height: '50px',
+              borderRadius: '5px',
+              marginBottom: '10px',
+              marginLeft: '0.5em',
+              marginTop: '0.5em',
+              outline: '0px auto -webkit-focus-ring-color',
+              outlineOffset: '0px',
+            }}
+          />
+        </Link>
         {msg.length ? <h2 style={{
           display: 'flex',
           flexDirection: 'column',
@@ -158,7 +176,7 @@ const Home = () => {
         fontFamily: 'sans-serif',
         fontSize: '20px'
       }}>
-        <img src={blog} alt="blog" style={{borderRadius: '20px 0'}} />
+        <img src={blog} alt="blog" style={{ borderRadius: '20px 0' }} />
 
       </p>
       <hr style={{ width: '50%', margin: 'auto', marginTop: '10px', color: 'white' }} />
