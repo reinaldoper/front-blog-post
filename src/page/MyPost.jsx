@@ -104,6 +104,7 @@ const MyPost = () => {
         justifyContent: 'center',
         color: 'white',
       }}>Post published    |    Post not-published</h3>
+      <hr style={{ width: '80%', margin: 'auto', marginTop: '10px', color: 'white' }} />
       <button type="button" onClick={returnPost} style={{
         display: 'flex',
         justifyContent: 'center',
@@ -114,6 +115,7 @@ const MyPost = () => {
         backgroundColor: '#8ebdb6',
         border: 'none',
       }}>posts</button>
+      <hr style={{ width: '80%', margin: 'auto', marginTop: '10px', color: 'white' }} />
       {user ? <>{post.length > 0 ? <div style={{ display: 'flex', margin: 'auto', textAlign: 'justify', justifyContent: 'center' }}>
         {user ? <div style={{ display: 'flex', marginTop: '10px', flexDirection: 'column', overflowY: 'scroll', height: '750px', backgroundColor: 'GrayText', borderRadius: '8px' }}>{published}</div> : null}
         {user ? <div style={{ display: 'flex', marginTop: '10px', flexDirection: 'column', overflowY: 'scroll', height: '750px', backgroundColor: 'GrayText', borderRadius: '8px' }}>{notPublished}</div> : null}

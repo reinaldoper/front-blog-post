@@ -3,7 +3,7 @@ import { Post } from "../service/fetch";
 import { useNavigate } from "react-router-dom";
 import botao from '../assets/download.jpeg'
 import botaoUpdate from '../assets/update.png';
-import click from '../assets/click.jpg';
+import click from '../assets/delete.png';
 import formatDate from "../uteis/formateData";
 
 const Posts = () => {
@@ -105,11 +105,11 @@ const Posts = () => {
       margin: 'auto',
       alignItems: 'center',
     }}>
-      <div>
+      <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between'}}>
         <button
           type="button"
           onClick={clickHome}
-          style={{ border: 'none', borderRadius: '5px', marginTop: '0.5em' }}
+          style={{ border: 'none', borderRadius: '5px', marginTop: '0.5em', marginLeft: '3em' }}
         >
           <img
             src={botao}
@@ -129,7 +129,7 @@ const Posts = () => {
         <button
           type="button"
           onClick={clickUpdate}
-          style={{ border: 'none', marginLeft: '3em', borderRadius: '5px', marginTop: '0.5em' }}
+          style={{ border: 'none', borderRadius: '5px', marginTop: '0.5em', marginLeft: '3em' }}
         >
           <img
             src={botaoUpdate}
@@ -150,7 +150,7 @@ const Posts = () => {
         <button
           type="button"
           onClick={clickMyPost}
-          style={{ border: 'none', marginLeft: '3em', borderRadius: '5px', marginTop: '0.5em' }}
+          style={{ border: 'none', borderRadius: '5px', marginTop: '0.5em', marginLeft: '3em' }}
         >
           <img
             src={click}
@@ -169,6 +169,7 @@ const Posts = () => {
           />
         </button>
       </div>
+      <hr style={{ width: '80%', margin: 'auto', marginTop: '10px', color: 'white' }} />
       <h1 style={{
         display: 'flex', marginLeft: '0.5em',
         marginTop: '0.5em',
