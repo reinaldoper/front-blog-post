@@ -7,6 +7,7 @@ import click from '../assets/delete.png';
 import formatDate from "../uteis/formateData";
 import { TbAlignCenter } from "react-icons/tb";
 import { CgComment } from "react-icons/cg";
+import { FiBellOff } from "react-icons/fi";
 
 
 const Posts = () => {
@@ -200,7 +201,7 @@ const Posts = () => {
           }}>Carregando...</h1>}
         <div style={{ marginTop: '8px' }}>
           <details style={{ marginLeft: '30px', fontSize: '25px' }}>
-            <summary>  Comment</summary>
+            <summary>  Comment<CgComment /></summary>
             {user.length > 0 ? <fieldset style={{
               display: 'flex',
               flexDirection: 'column',
@@ -255,12 +256,12 @@ const Posts = () => {
           </details>
           <hr style={{ color: 'white' }} />
           <details style={{ marginLeft: '0', fontSize: '25px' }}>
-            <summary>  Regras</summary>
+            <summary>  Regras<FiBellOff /></summary>
             <p style={{ marginLeft: '10px' }}>Todo e qualquer comentário <br /> ofencivo será excluido.</p>
           </details>
           <hr style={{ color: 'white' }} />
           <details style={{ marginLeft: '0px', fontSize: '25px' }}>
-            <summary style={{ marginLeft: '70px', fontSize: '25px' }} className="discriminacao">  Discriminação</summary>
+            <summary style={{ marginLeft: '20px', fontSize: '25px' }} className="discriminacao">Proibido<FiBellOff /></summary>
             <p style={{ marginLeft: '10px' }}>Comentários <br /> racistas serão excluidos.</p>
           </details>
 
