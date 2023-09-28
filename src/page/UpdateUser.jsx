@@ -4,7 +4,7 @@ import { User } from "../service/fetch";
 import login from '../assets/login.png';
 
 const UpdateUser = () => {
-  const [email, setEmail] = useState('');
+  const [name, setEmail] = useState('');
   const [msg, setMessage] = useState('');
 
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ const UpdateUser = () => {
     const token = localStorage.getItem('token');
     const options = {
       method: "PUT",
-      body: JSON.stringify({ email: email }),
+      body: JSON.stringify({ name: name }),
       headers: {
         'Content-Type': 'application/json',
         Authorization: token,
@@ -59,7 +59,7 @@ const UpdateUser = () => {
         <h1 style={{ backgroundColor: 'GrayText', }}><strong><em style={{ backgroundColor: 'GrayText', }}>Update User</em></strong></h1>
         <input
           type="text"
-          value={email}
+          value={name}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="name"
           style={{
