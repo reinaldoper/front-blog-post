@@ -101,17 +101,17 @@ const UpdatePost = () => {
         <li><button type="button" style={{ width: '100%', border: 'none' }} onClick={() => updatePost(post.id)}>
           <img src={remove} alt="remove" style={{ width: '10%' }} />
         </button></li>
-        <li>{msg && post.id === msg.id ? <div style={{ display: 'flex' }}>
+        <li>{msg && post.id === msg.id ? <div style={{ display: 'flex', flexWrap: 'wrap' }}>
           <div>
             <input type="text"
               value={title}
-              style={{ display: 'flex', height: '10%', backgroundColor: '#8e8ca3', borderRadius: '5px' }}
+              style={{ display: 'flex', height: '20%', backgroundColor: '#8e8ca3', borderRadius: '5px', width: '100%' }}
               onChange={(e) => setTitle(e.target.value)}
             />
             <button type="button"
               style={{
                 display: 'flex',
-                height: '12%',
+                height: '15%',
                 marginTop: '3%',
                 justifyContent: 'center',
                 width: '100%', backgroundColor: '#7345d6', borderRadius: '5px'
@@ -138,17 +138,17 @@ const UpdatePost = () => {
         <li><button type="button" style={{ width: '100%', border: 'none' }} onClick={() => updatePost(post.id)}>
           <img src={remove} alt="remove" style={{ width: '10%' }} />
         </button></li>
-        <li>{msg && post.id === msg.id ? <div style={{ display: 'flex' }}>
+        <li>{msg && post.id === msg.id ? <div style={{ display: 'flex', flexWrap: 'wrap' }}>
           <div>
             <input type="text"
               value={title}
-              style={{ display: 'flex', height: '10%', backgroundColor: '#8e8ca3', borderRadius: '5px' }}
+              style={{ display: 'flex', height: '20%', backgroundColor: '#8e8ca3', borderRadius: '5px', width: '100%' }}
               onChange={(e) => setTitle(e.target.value)}
             />
             <button type="button"
               style={{
                 display: 'flex',
-                height: '12%',
+                height: '15%',
                 marginTop: '3%',
                 justifyContent: 'center', backgroundColor: '#7345d6', borderRadius: '5px',
                 width: '100%'
@@ -184,8 +184,8 @@ const UpdatePost = () => {
         border: 'none',
       }}>posts</button>
       <div style={{ display: 'flex', margin: 'auto', textAlign: 'justify', justifyContent: 'center' }}>
-        {user ? <div style={{ display: 'flex', marginTop: '10px', flexDirection: 'column', overflowY: 'scroll', height: '750px', backgroundColor: 'GrayText' }}>{published}</div> : null}
-        {user ? <div style={{ display: 'flex', marginTop: '10px', flexDirection: 'column', overflowY: 'scroll', height: '750px', backgroundColor: 'GrayText' }}>{notPublished}</div> : null}
+        {user ? <div style={{ display: 'flex', marginTop: '10px', flexDirection: 'column', overflowY: 'scroll', height: '750px', backgroundColor: 'GrayText', borderRadius: '8px' }}>{published}</div> : null}
+        {user ? <div style={{ display: 'flex', marginTop: '10px', flexDirection: 'column', overflowY: 'scroll', height: '750px', backgroundColor: 'GrayText', borderRadius: '8px' }}>{notPublished}</div> : null}
       </div>
       {error ? <div style={{ display: 'flex', justifyContent: 'center' }}>{error}</div> : null}
       {newUserid ? <div style={{ display: 'flex', justifyContent: 'center' }}>{newUser}</div> : null}

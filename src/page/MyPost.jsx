@@ -115,8 +115,8 @@ const MyPost = () => {
         border: 'none',
       }}>posts</button>
       <div style={{ display: 'flex', margin: 'auto', textAlign: 'justify', justifyContent: 'center' }}>
-        {user ? <div style={{display: 'flex', marginTop: '10px', flexDirection: 'column', overflowY: 'scroll', height: '750px', backgroundColor: 'GrayText'}}>{published}</div> : null}
-        {user ? <div style={{display: 'flex', marginTop: '10px', flexDirection: 'column', overflowY: 'scroll', height: '750px', backgroundColor: 'GrayText'}}>{notPublished}</div> : null}
+        {user ? <div style={{display: 'flex', marginTop: '10px', flexDirection: 'column', overflowY: 'scroll', height: '750px', backgroundColor: 'GrayText', borderRadius: '8px'}}>{published}</div> : null}
+        {user ? <div style={{display: 'flex', marginTop: '10px', flexDirection: 'column', overflowY: 'scroll', height: '750px', backgroundColor: 'GrayText', borderRadius: '8px'}}>{notPublished}</div> : null}
       </div>
       {error ? <div style={{ display: 'flex', justifyContent: 'center' }}>{error}</div> : null}
       {userid ? <div style={{ display: 'flex', justifyContent: 'center' }}>{msg}</div> : null}
