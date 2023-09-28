@@ -108,7 +108,7 @@ const UpdateUser = () => {
             }}
           />
         </Link>
-        {msg.length ? <h2 style={{
+        {msg ? <h2 style={{
           display: 'flex',
           flexDirection: 'column',
           width: '50%',
