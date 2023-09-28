@@ -183,13 +183,12 @@ const UpdatePost = () => {
         backgroundColor: '#8ebdb6',
         border: 'none',
       }}>posts</button>
-      <div style={{ display: 'flex', margin: 'auto', textAlign: 'justify', justifyContent: 'center' }}>
+      {user ? <>{post.length > 0 ? <div style={{ display: 'flex', margin: 'auto', textAlign: 'justify', justifyContent: 'center' }}>
         {user ? <div style={{ display: 'flex', marginTop: '10px', flexDirection: 'column', overflowY: 'scroll', height: '750px', backgroundColor: 'GrayText', borderRadius: '8px' }}>{published}</div> : null}
         {user ? <div style={{ display: 'flex', marginTop: '10px', flexDirection: 'column', overflowY: 'scroll', height: '750px', backgroundColor: 'GrayText', borderRadius: '8px' }}>{notPublished}</div> : null}
-      </div>
+      </div>: <h1 style={{display: 'flex', color: 'white', justifyContent: 'center', marginTop: '10%'}}>You not have post published.</h1>}</> : <h1 style={{ display: 'flex', justifyContent: 'center', color: 'white' }}>Carregando...</h1>}
       {error ? <div style={{ display: 'flex', justifyContent: 'center' }}>{error}</div> : null}
       {newUserid ? <div style={{ display: 'flex', justifyContent: 'center' }}>{newUser}</div> : null}
-      {post.length > 0 ? null : <h1 style={{ display: 'flex', justifyContent: 'center', color: 'white' }}>Carregando...</h1>}
     </div>
   )
 }
