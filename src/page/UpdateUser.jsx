@@ -56,7 +56,7 @@ const UpdateUser = () => {
         backgroundColor: 'GrayText',
         borderRadius: '10px',
       }}>
-        <h1 style={{ backgroundColor: 'GrayText', }}><strong><em style={{ backgroundColor: 'GrayText', }}>Create User</em></strong></h1>
+        <h1 style={{ backgroundColor: 'GrayText', }}><strong><em style={{ backgroundColor: 'GrayText', }}>Update User</em></strong></h1>
         <input
           type="text"
           value={email}
