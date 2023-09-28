@@ -3,6 +3,7 @@ import { User } from "../service/fetch";
 import { useNavigate, Link } from "react-router-dom";
 import inscrever from '../assets/inscrever.png';
 import blog from '../assets/images.jpeg';
+import blogContent from '../assets/blog.jpg';
 import updateUser from '../assets/update.png';
 
 
@@ -173,13 +174,15 @@ const Home = () => {
         marginTop: '15px',
         justifyContent: 'center',
         alignContent: 'justify',
-        fontFamily: 'sans-serif',
         fontSize: '20px'
       }}>
-        <img src={blog} alt="blog" style={{ borderRadius: '20px 0' }} />
-
+        <div style={{display: 'flex', flexDirection: 'row'}} className="img-blogs">
+          <img className="img-0" src={blog} alt="blog" style={{ borderRadius: '20px 0', marginRight: '0.5em' }} />
+          <img className="img-1" src={blogContent} alt="blog" style={{ borderRadius: '20px 0', marginLeft: '0.5em' }} />
+        </div>
       </p>
       <hr style={{ width: '50%', margin: 'auto', marginTop: '10px', color: 'white' }} />
+      <h2 style={{ display: 'flex', justifyContent: 'center', margin: 'auto', marginTop: '10px', color: 'white' }}>All rights reserved &reg;</h2>
     </div>
   )
 }
