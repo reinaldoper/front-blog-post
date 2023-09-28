@@ -4,6 +4,7 @@ import remove from '../assets/remove.png';
 import { useNavigate } from "react-router-dom";
 import formatDate from "../uteis/formateData";
 import { CgComment } from "react-icons/cg";
+import { ImHome2 } from "react-icons/im";
 
 const MyPost = () => {
   const [post, setPost] = useState([]);
@@ -117,7 +118,7 @@ const MyPost = () => {
         borderRadius: '5px',
         backgroundColor: '#8ebdb6',
         border: 'none',
-      }}>posts</button>
+      }}><ImHome2 /></button>
       <hr style={{ width: '80%', margin: 'auto', marginTop: '10px', color: 'white' }} />
       {user ? <>{post.length > 0 ? <div style={{ display: 'flex', margin: 'auto', textAlign: 'justify', justifyContent: 'center' }}>
         {user ? <div style={{ display: 'flex', marginTop: '10px', flexDirection: 'column', overflowY: 'scroll', height: '750px', backgroundColor: 'GrayText', borderRadius: '8px' }}>{published}</div> : null}
