@@ -226,7 +226,7 @@ const Posts = () => {
             justifyContent: 'center',
             alignItems: 'center',
             color: 'white',
-          }}><img src={carregando} alt="carregando" /></h1>}
+          }}><img className="reading" src={carregando} alt="carregando" /></h1>}
         <div style={{ marginTop: '8px' }}>
           <details style={{ marginLeft: '30px', fontSize: '25px' }}>
             <summary>  Comment<CgComment /></summary>

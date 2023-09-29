@@ -127,7 +127,7 @@ const MyPost = () => {
         {user ? <div style={{ display: 'flex', marginTop: '10px', flexDirection: 'column', overflowY: 'scroll', height: '750px', backgroundColor: 'GrayText', borderRadius: '8px' }}>{published}</div> : null}
         {user ? <div style={{ display: 'flex', marginTop: '10px', flexDirection: 'column', overflowY: 'scroll', height: '750px', backgroundColor: 'GrayText', borderRadius: '8px' }}>{notPublished}</div> : null}
       </div> : <h1 style={{ display: 'flex', color: 'white', justifyContent: 'center', marginTop: '10%' }}>You not have post published.</h1>}</> : <h1 style={{ display: 'flex', justifyContent: 'center', color: 'white' }}>
-      <img src={carregando} alt="carregando" />
+      <img className="reading" src={carregando} alt="carregando" />
         </h1>}
       {error ? <div style={{ display: 'flex', justifyContent: 'center' }}>{error}</div> : null}
       {userid ? <div style={{ display: 'flex', justifyContent: 'center' }}>{msg}</div> : null}
