@@ -8,6 +8,8 @@ import formatDate from "../uteis/formateData";
 import { TbAlignCenter } from "react-icons/tb";
 import { CgComment } from "react-icons/cg";
 import { FiBellOff } from "react-icons/fi";
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 import carregando from '../assets/carregando.png';
 
 
@@ -20,6 +22,10 @@ const Posts = () => {
   const [error, setError] = useState('');
   const [name, setName] = useState('');
   const [description, setDescription] = useState(false);
+  const [show, setShow] = useState(false);
+
+  const fechaModal = () => setShow(false);
+  const abrirModal = () => setShow(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -230,67 +236,89 @@ const Posts = () => {
         <div style={{ marginTop: '8px' }}>
           <details style={{ marginLeft: '30px', fontSize: '25px' }}>
             <summary>  Comment<CgComment /></summary>
-            {user.length > 0 ? <fieldset style={{
-              display: 'flex',
-              flexDirection: 'column',
-              textAlign: 'center',
-              justifyContent: 'center',
-              marginLeft: '0.5em',
-              border: '1px solid gray',
-              padding: '0.5em',
-              borderRadius: '5px',
-              backgroundColor: '#6e9987',
-              width: '20vw',
-            }}>
-              <legend style={{ backgroundColor: '#6e9987', display: 'flex', justifyContent: 'center' }}><TbAlignCenter /></legend>
-              <input type="text"
-                value={title}
-                placeholder="title"
-                onChange={(e) => setTitle(e.target.value)}
-                style={{
-                  marginBottom: '0.5em',
-                  border: '1px solid #3d423c',
-                  backgroundColor: '#b2b39f',
-                  borderRadius: '5px',
-                  height: '30px',
-                  textAlign: 'justify',
-                }}
-              />
-              <textarea value={content} cols="30" rows="10"
-                placeholder="What are you thinking:"
-                onChange={(e) => setContent(e.target.value)}
-                style={{ display: 'flex', backgroundColor: '#b2b39f', }}
-              >
+            {user.length > 0 ?
+              <>
+                <Button variant="primary" onClick={abrirModal} style={{ marginTop: '0.5em' }}>
+                  Open more details for comment
+                </Button>
 
-              </textarea>
-              <div style={{ display: 'flex', justifyContent: 'center', backgroundColor: '#6e9987', flexWrap: 'wrap' }}>
-                <input
-                  type="checkbox"
-                  value={published}
-                  onClick={(e) => setPublished(e.target.checked)}
-                  style={{ border: 'none', backgroundColor: '#dedfc5' }}
-                />
-                <label htmlFor="" style={{ display: 'flex', marginLeft: '10px', backgroundColor: '#6e9987' }}>published</label>
-              </div>
-              <button type="button"
-                onClick={publish}
-                style={{
-                  backgroundColor: '#114d4d',
-                  color: 'white',
-                  borderRadius: '5px',
-                }}>create</button>
-              {error.length > 0 ? <h4 style={{ backgroundColor: '#6e9987' }}>{error}</h4> : null}
-            </fieldset> : null}
+                <Modal show={show} onHide={fechaModal}>
+                  <Modal.Header closeButton>
+                    <Modal.Title>Do your comment</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                    <fieldset style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      textAlign: 'center',
+                      justifyContent: 'center',
+                      border: 'none',
+                      padding: '0.5em',
+                      borderRadius: '5px',
+                      backgroundColor: '#6e9987',
+                      width: '100%',
+                    }}>
+                      <legend style={{ backgroundColor: '#6e9987', display: 'flex', justifyContent: 'center' }}><TbAlignCenter /></legend>
+                      <input type="text"
+                        value={title}
+                        placeholder="title"
+                        onChange={(e) => setTitle(e.target.value)}
+                        style={{
+                          marginBottom: '0.5em',
+                          border: '1px solid #3d423c',
+                          backgroundColor: '#b2b39f',
+                          borderRadius: '5px',
+                          height: '30px',
+                          textAlign: 'justify',
+                        }}
+                      />
+                      <textarea value={content} cols="30" rows="10"
+                        placeholder="What are you thinking:"
+                        onChange={(e) => setContent(e.target.value)}
+                        style={{ display: 'flex', backgroundColor: '#b2b39f', }}
+                      >
+
+                      </textarea>
+                      <div style={{ display: 'flex', justifyContent: 'center', backgroundColor: '#6e9987', flexWrap: 'wrap' }}>
+                        <input
+                          type="checkbox"
+                          value={published}
+                          onClick={(e) => setPublished(e.target.checked)}
+                          style={{ border: 'none', backgroundColor: '#dedfc5' }}
+                        />
+                        <label htmlFor="" style={{ display: 'flex', marginLeft: '10px', backgroundColor: '#6e9987' }}>published</label>
+                      </div>
+                      <button type="button"
+                        onClick={publish}
+                        style={{
+                          backgroundColor: '#114d4d',
+                          color: 'white',
+                          borderRadius: '5px',
+                        }}>create</button>
+                      {error.length > 0 ? <h4 style={{ backgroundColor: '#6e9987' }}>{error}</h4> : null}
+                    </fieldset>
+                  </Modal.Body>
+                  <Modal.Footer>
+                    <Button variant="secondary" onClick={fechaModal}>
+                      Button close
+                    </Button>
+                    <Button variant="primary" onClick={fechaModal}>
+                      Button save
+                    </Button>
+                  </Modal.Footer>
+                </Modal>
+              </>
+              : null}
           </details>
           <hr style={{ color: 'white' }} />
           <details style={{ marginLeft: '0', fontSize: '25px' }}>
             <summary>  Regras<FiBellOff /></summary>
-            <p style={{ marginLeft: '10px' }}>Todo e qualquer comentário <br /> ofencivo será excluido.</p>
+            <p style={{ marginLeft: '10px', color: 'white' }}>Todo e qualquer comentário <br /> ofencivo será excluido.</p>
           </details>
           <hr style={{ color: 'white' }} />
           <details style={{ marginLeft: '0px', fontSize: '25px' }}>
             <summary style={{ marginLeft: '20px', fontSize: '25px' }} className="discriminacao">Proibido<FiBellOff /></summary>
-            <p style={{ marginLeft: '10px' }}>Comentários <br /> racistas serão excluidos.</p>
+            <p style={{ marginLeft: '10px', color: 'white' }}>Comentários <br /> racistas serão excluidos.</p>
           </details>
 
         </div>
