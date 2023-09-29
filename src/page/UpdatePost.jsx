@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import formatDate from "../uteis/formateData";
 import { CgComment } from "react-icons/cg";
 import { ImHome2 } from "react-icons/im";
-import { AiFillCheckSquare } from "react-icons/ai";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import carregando from '../assets/carregando.png';
@@ -97,6 +96,7 @@ const UpdatePost = () => {
     }
     setMessage('');
     result();
+    fechaModal();
 
   }
 
@@ -130,26 +130,12 @@ const UpdatePost = () => {
                 />
                 <textarea style={{ backgroundColor: '#8e8ca3', marginTop: '0.5em', width: '100%', borderRadius: '5px' }} value={content} cols="15" rows="10" onChange={(e) => setContent(e.target.value)} >
                 </textarea>
-                <button type="button"
-                  style={{
-                    display: 'flex',
-                    height: '5vh',
-                    marginTop: '3%',
-                    marginBottom: '3%',
-                    justifyContent: 'center',
-                    padding: '10px',
-                    width: '100%', backgroundColor: '#7345d6', borderRadius: '5px'
-                  }}
-                  onClick={() => update(post.id)}
-                >
-                  <AiFillCheckSquare />
-                </button>
               </Modal.Body>
               <Modal.Footer>
                 <Button variant="secondary" onClick={fechaModal}>
                   Button close
                 </Button>
-                <Button variant="primary" onClick={fechaModal}>
+                <Button variant="primary" onClick={() => update(post.id)}>
                   Button save
                 </Button>
               </Modal.Footer>
@@ -189,26 +175,12 @@ const UpdatePost = () => {
                 />
                 <textarea style={{ backgroundColor: '#8e8ca3', marginTop: '0.5em', width: '100%', borderRadius: '5px' }} value={content} cols="15" rows="10" onChange={(e) => setContent(e.target.value)} >
                 </textarea>
-                <button type="button"
-                  style={{
-                    display: 'flex',
-                    height: '5vh',
-                    marginTop: '3%',
-                    marginBottom: '3%',
-                    justifyContent: 'center',
-                    padding: '10px',
-                    width: '100%', backgroundColor: '#7345d6', borderRadius: '5px'
-                  }}
-                  onClick={() => update(post.id)}
-                >
-                  <AiFillCheckSquare />
-                </button>
               </Modal.Body>
               <Modal.Footer>
                 <Button variant="secondary" onClick={fechaModal}>
                   Button close
                 </Button>
-                <Button variant="primary" onClick={fechaModal}>
+                <Button variant="primary" onClick={() => update(post.id)}>
                   Button save
                 </Button>
               </Modal.Footer>
