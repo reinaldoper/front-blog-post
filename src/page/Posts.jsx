@@ -8,6 +8,7 @@ import formatDate from "../uteis/formateData";
 import { TbAlignCenter } from "react-icons/tb";
 import { CgComment } from "react-icons/cg";
 import { FiBellOff } from "react-icons/fi";
+import carregando from '../assets/carregando.png'; 
 
 
 const Posts = () => {
@@ -198,7 +199,7 @@ const Posts = () => {
             justifyContent: 'center',
             alignItems: 'center',
             color: 'white',
-          }}>Carregando...</h1>}
+          }}><img src={carregando} alt="carregando" /></h1>}
         <div style={{ marginTop: '8px' }}>
           <details style={{ marginLeft: '30px', fontSize: '25px' }}>
             <summary>  Comment<CgComment /></summary>

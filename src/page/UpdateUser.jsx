@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { User } from "../service/fetch";
 import login from '../assets/login.png';
+import { BiArchiveIn } from "react-icons/bi";
+import { CgComment } from "react-icons/cg";
 
 const UpdateUser = () => {
   const [name, setEmail] = useState('');
@@ -34,21 +36,19 @@ const UpdateUser = () => {
 
   return (
     <div>
-      <img src="https://img.freepik.com/vetores-gratis/blogar-divertido-criacao-de-conteudo-streaming-online-videoblog-jovem-fazendo-selfie-para-rede-social-compartilhando-feedback-estrategia-de-autopromocao-ilustracao-vetorial-de-metafora-de-conceito_335657-855.jpg"
-        alt="images"
-        style={{
-          display: 'flex',
-          margin: '0 auto',
-          width: '10%',
-          height: '8%',
-          borderRadius: '20% 0',
-          marginTop: '10px',
-        }}
-      />
+      <CgComment style={{
+        display: 'flex',
+        margin: '0 auto',
+        width: '10%',
+        height: '8%',
+        borderRadius: '20%',
+        marginTop: '10px',
+        color: 'white',
+      }} />
       <div style={{
         display: "flex",
         flexDirection: 'column',
-        border: '1px solid black',
+        border: 'none',
         padding: '10px',
         width: '30%',
         margin: '0 auto',
@@ -86,10 +86,11 @@ const UpdateUser = () => {
             textAlign: 'center',
             justifyContent: 'center',
             backgroundColor: 'blueviolet',
-            cursor: 'pointer'
+            cursor: 'pointer',
+            alignItems: 'center',
           }}
         >
-          Update
+          <BiArchiveIn />
         </button>
         <Link to='/'
           style={{ backgroundColor: 'GrayText', color: 'black' }}>

@@ -5,7 +5,8 @@ import inscrever from '../assets/inscrever.png';
 import blog from '../assets/images.jpeg';
 import blogContent from '../assets/blog.jpg';
 import updateUser from '../assets/update.png';
-
+import { BiArchiveIn } from "react-icons/bi";
+import { CgComment } from "react-icons/cg";
 
 const Home = () => {
   const [msg, setMessage] = useState('');
@@ -52,21 +53,19 @@ const Home = () => {
 
   return (
     <div>
-      <img src="https://img.freepik.com/vetores-gratis/blogar-divertido-criacao-de-conteudo-streaming-online-videoblog-jovem-fazendo-selfie-para-rede-social-compartilhando-feedback-estrategia-de-autopromocao-ilustracao-vetorial-de-metafora-de-conceito_335657-855.jpg"
-        alt="images"
-        style={{
+      <CgComment style={{
           display: 'flex',
           margin: '0 auto',
           width: '10%',
           height: '8%',
-          borderRadius: '20% 0',
+          borderRadius: '20%',
           marginTop: '10px',
-        }}
-      />
+          color: 'white',
+        }} />
       <div style={{
         display: "flex",
         flexDirection: 'column',
-        border: '1px solid black',
+        border: 'none',
         padding: '10px',
         width: '30%',
         margin: '0 auto',
@@ -83,11 +82,12 @@ const Home = () => {
           style={{
             display: 'flex',
             flexDirection: 'column',
-            width: '50%',
+            width: '55%',
             margin: '0 auto',
             marginBottom: '10px',
-            height: '30px',
+            height: '1.5em',
             font: 'large',
+            border: 'none',
           }}
         />
         <button
@@ -96,27 +96,29 @@ const Home = () => {
           style={{
             display: 'flex',
             flexDirection: 'column',
-            width: '50%',
+            width: '55%',
             margin: '0 auto',
             marginBottom: '10px',
-            height: '30px',
+            height: '1.5em',
             font: 'large',
             textAlign: 'center',
             justifyContent: 'center',
             backgroundColor: 'blueviolet',
-            cursor: 'pointer'
+            alignItems: 'center',
+            cursor: 'pointer',
           }}
+          className="button"
         >
-          Login
+          <BiArchiveIn />
         </button>
-        <Link to='/users' style={{ backgroundColor: 'GrayText', color: 'black' }}>
+        <Link to='/users' className="img-inscrever" style={{ backgroundColor: 'GrayText', color: 'black' }}>
           <img src={inscrever}
             alt="inscrever"
             style={{
               display: 'flex',
               cursor: 'pointer',
               width: '5em',
-              height: '50px',
+              height: '5em',
               borderRadius: '5px',
               marginBottom: '10px',
               marginLeft: '0.5em',
@@ -133,7 +135,7 @@ const Home = () => {
               display: 'flex',
               cursor: 'pointer',
               width: '5em',
-              height: '50px',
+              height: '5em',
               borderRadius: '5px',
               marginBottom: '10px',
               marginLeft: '0.5em',
@@ -164,7 +166,7 @@ const Home = () => {
           font: 'large',
           textAlign: 'center',
           justifyContent: 'center'
-        }}>Carregando..</h1> : null}
+        }}>Carregando...</h1> : null}
       </div>
       <hr style={{ width: '50%', margin: 'auto', marginTop: '10px', color: 'white' }} />
       <p style={{
@@ -176,7 +178,7 @@ const Home = () => {
         alignContent: 'justify',
         fontSize: '20px'
       }}>
-        <div style={{display: 'flex', flexDirection: 'row'}} className="img-blogs">
+        <div style={{ display: 'flex', flexDirection: 'row' }} className="img-blogs">
           <img className="img-0" src={blog} alt="blog" style={{ borderRadius: '20px 0', marginRight: '0.5em' }} />
           <img className="img-1" src={blogContent} alt="blog" style={{ borderRadius: '20px 0', marginLeft: '0.5em' }} />
         </div>

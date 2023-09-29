@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import formatDate from "../uteis/formateData";
 import { CgComment } from "react-icons/cg";
 import { ImHome2 } from "react-icons/im";
+import { AiFillCheckSquare } from "react-icons/ai";
+import carregando from '../assets/carregando.png';
 
 const UpdatePost = () => {
   const [post, setPost] = useState([]);
@@ -118,11 +120,12 @@ const UpdatePost = () => {
                 marginTop: '3%',
                 marginBottom: '3%',
                 justifyContent: 'center',
+                padding: '10px',
                 width: '100%', backgroundColor: '#7345d6', borderRadius: '5px'
               }}
               onClick={() => update(post.id)}
             >
-              update
+              <AiFillCheckSquare />
             </button>
           </div>
           <textarea style={{ marginLeft: '0.5em', backgroundColor: '#8e8ca3', borderRadius: '5px' }} value={content} cols="15" rows="10" onChange={(e) => setContent(e.target.value)} >
@@ -155,13 +158,14 @@ const UpdatePost = () => {
                 display: 'flex',
                 marginTop: '3%',
                 marginBottom: '3%',
+                padding: '10px',
                 height: '5vh',
                 justifyContent: 'center', backgroundColor: '#7345d6', borderRadius: '5px',
                 width: '100%'
               }}
               onClick={() => update(post.id)}
             >
-              update
+              <AiFillCheckSquare />
             </button>
           </div>
           <textarea style={{ marginLeft: '0.5em', backgroundColor: '#8e8ca3', borderRadius: '5px' }} value={content} cols="15" rows="10" onChange={(e) => setContent(e.target.value)} >
@@ -189,12 +193,16 @@ const UpdatePost = () => {
         borderRadius: '5px',
         backgroundColor: '#8ebdb6',
         border: 'none',
+        padding: '10px',
+        height: '2.4em',
       }}><ImHome2 /></button>
       <hr style={{ width: '80%', margin: 'auto', marginTop: '10px', color: 'white' }} />
       {user ? <>{post.length > 0 ? <div style={{ display: 'flex', margin: 'auto', textAlign: 'justify', justifyContent: 'center' }}>
         {user ? <div style={{ display: 'flex', marginTop: '10px', flexDirection: 'column', overflowY: 'scroll', height: '750px', backgroundColor: 'GrayText', borderRadius: '8px' }}>{published}</div> : null}
         {user ? <div style={{ display: 'flex', marginTop: '10px', flexDirection: 'column', overflowY: 'scroll', height: '750px', backgroundColor: 'GrayText', borderRadius: '8px' }}>{notPublished}</div> : null}
-      </div> : <h1 style={{ display: 'flex', color: 'white', justifyContent: 'center', marginTop: '10%' }}>You not have post published.</h1>}</> : <h1 style={{ display: 'flex', justifyContent: 'center', color: 'white' }}>Carregando...</h1>}
+      </div> : <h1 style={{ display: 'flex', color: 'white', justifyContent: 'center', marginTop: '10%' }}>You not have post published.</h1>}</> : <h1 style={{ display: 'flex', justifyContent: 'center', color: 'white' }}>
+        <img src={carregando} alt="carregando" />
+        </h1>}
       {error ? <div style={{ display: 'flex', justifyContent: 'center' }}>{error}</div> : null}
       {newUserid ? <div style={{ display: 'flex', justifyContent: 'center' }}>{newUser}</div> : null}
     </div>
