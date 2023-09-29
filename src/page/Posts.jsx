@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Post } from "../service/fetch";
+import { Post, User } from "../service/fetch";
 import { useNavigate } from "react-router-dom";
 import botao from '../assets/download.jpeg'
 import botaoUpdate from '../assets/update.png';
@@ -18,10 +18,12 @@ const Posts = () => {
   const [title, setTitle] = useState('');
   const [published, setPublished] = useState(false);
   const [error, setError] = useState('');
+  const [name, setName] = useState('');
   const navigate = useNavigate();
 
   useEffect(() => {
     renderizaPosts();
+    result();
   }, []);
 
   const publish = async () => {
@@ -49,6 +51,27 @@ const Posts = () => {
     }
     renderizaPosts();
   };
+
+  const result = async () => {
+    const token = localStorage.getItem('token');
+    const email = localStorage.getItem('email');
+    const options = {
+      method: "PATCH",
+      body: JSON.stringify({
+        email: email,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: token,
+      }
+    }
+    const { error, message } = await User(options, 'user/email');
+    if (message) {
+      setName(message)
+    } else if (error) {
+      setError(error);
+    }
+  }
 
 
 
@@ -112,6 +135,7 @@ const Posts = () => {
       alignItems: 'center',
     }}>
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
+      <h3 style={{display: 'flex', marginTop: '0.8em', color: 'white'}}>Welcome: <strong>{name.name}</strong></h3>
         <button
           type="button"
           onClick={clickHome}
