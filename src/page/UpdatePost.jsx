@@ -6,6 +6,8 @@ import formatDate from "../uteis/formateData";
 import { CgComment } from "react-icons/cg";
 import { ImHome2 } from "react-icons/im";
 import { AiFillCheckSquare } from "react-icons/ai";
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 import carregando from '../assets/carregando.png';
 
 const UpdatePost = () => {
@@ -17,6 +19,10 @@ const UpdatePost = () => {
   const [content, setContent] = useState('');
   const [newUser, setNewUser] = useState('');
   const [newUserid, setNewUserid] = useState(false);
+  const [show, setShow] = useState(false);
+
+  const fechaModal = () => setShow(false);
+  const abrirModal = () => setShow(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -108,28 +114,47 @@ const UpdatePost = () => {
         </button></li>
         <li>{msg && post.id === msg.id ? <div style={{ display: 'flex', flexWrap: 'wrap' }}>
           <div>
-            <input type="text"
-              value={title}
-              style={{ display: 'flex', height: '5vh', backgroundColor: '#8e8ca3', borderRadius: '5px', width: '100%' }}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-            <button type="button"
-              style={{
-                display: 'flex',
-                height: '5vh',
-                marginTop: '3%',
-                marginBottom: '3%',
-                justifyContent: 'center',
-                padding: '10px',
-                width: '100%', backgroundColor: '#7345d6', borderRadius: '5px'
-              }}
-              onClick={() => update(post.id)}
-            >
-              <AiFillCheckSquare />
-            </button>
+            <Button variant="primary" onClick={abrirModal} style={{ marginTop: '0.5em' }}>
+              Open more details for update
+            </Button>
+
+            <Modal show={show} onHide={fechaModal}>
+              <Modal.Header closeButton>
+                <Modal.Title>Information change:</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <input type="text"
+                  value={title}
+                  style={{ display: 'flex', height: '5vh', backgroundColor: '#8e8ca3', borderRadius: '5px', width: '100%' }}
+                  onChange={(e) => setTitle(e.target.value)}
+                />
+                <textarea style={{ backgroundColor: '#8e8ca3', marginTop: '0.5em', width: '100%', borderRadius: '5px' }} value={content} cols="15" rows="10" onChange={(e) => setContent(e.target.value)} >
+                </textarea>
+                <button type="button"
+                  style={{
+                    display: 'flex',
+                    height: '5vh',
+                    marginTop: '3%',
+                    marginBottom: '3%',
+                    justifyContent: 'center',
+                    padding: '10px',
+                    width: '100%', backgroundColor: '#7345d6', borderRadius: '5px'
+                  }}
+                  onClick={() => update(post.id)}
+                >
+                  <AiFillCheckSquare />
+                </button>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={fechaModal}>
+                  Button close
+                </Button>
+                <Button variant="primary" onClick={fechaModal}>
+                  Button save
+                </Button>
+              </Modal.Footer>
+            </Modal>
           </div>
-          <textarea style={{ marginLeft: '0.5em', backgroundColor: '#8e8ca3', borderRadius: '5px' }} value={content} cols="15" rows="10" onChange={(e) => setContent(e.target.value)} >
-          </textarea>
         </div> : null}</li>
       </ol> : null}
     </div>
@@ -148,28 +173,47 @@ const UpdatePost = () => {
         </button></li>
         <li>{msg && post.id === msg.id ? <div style={{ display: 'flex', flexWrap: 'wrap' }}>
           <div>
-            <input type="text"
-              value={title}
-              style={{ display: 'flex', height: '5vh', backgroundColor: '#8e8ca3', borderRadius: '5px', width: '100%' }}
-              onChange={(e) => setTitle(e.target.value)}
-            />
-            <button type="button"
-              style={{
-                display: 'flex',
-                marginTop: '3%',
-                marginBottom: '3%',
-                padding: '10px',
-                height: '5vh',
-                justifyContent: 'center', backgroundColor: '#7345d6', borderRadius: '5px',
-                width: '100%'
-              }}
-              onClick={() => update(post.id)}
-            >
-              <AiFillCheckSquare />
-            </button>
+            <Button variant="primary" onClick={abrirModal} style={{ marginTop: '0.5em' }}>
+              Open more details for update
+            </Button>
+
+            <Modal show={show} onHide={fechaModal}>
+              <Modal.Header closeButton>
+                <Modal.Title>Information change:</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <input type="text"
+                  value={title}
+                  style={{ display: 'flex', height: '5vh', backgroundColor: '#8e8ca3', borderRadius: '5px', width: '100%' }}
+                  onChange={(e) => setTitle(e.target.value)}
+                />
+                <textarea style={{ backgroundColor: '#8e8ca3', marginTop: '0.5em', width: '100%', borderRadius: '5px' }} value={content} cols="15" rows="10" onChange={(e) => setContent(e.target.value)} >
+                </textarea>
+                <button type="button"
+                  style={{
+                    display: 'flex',
+                    height: '5vh',
+                    marginTop: '3%',
+                    marginBottom: '3%',
+                    justifyContent: 'center',
+                    padding: '10px',
+                    width: '100%', backgroundColor: '#7345d6', borderRadius: '5px'
+                  }}
+                  onClick={() => update(post.id)}
+                >
+                  <AiFillCheckSquare />
+                </button>
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={fechaModal}>
+                  Button close
+                </Button>
+                <Button variant="primary" onClick={fechaModal}>
+                  Button save
+                </Button>
+              </Modal.Footer>
+            </Modal>
           </div>
-          <textarea style={{ marginLeft: '0.5em', backgroundColor: '#8e8ca3', borderRadius: '5px' }} value={content} cols="15" rows="10" onChange={(e) => setContent(e.target.value)} >
-          </textarea>
         </div> : null}</li>
       </ol> : null}
     </div>
@@ -202,7 +246,7 @@ const UpdatePost = () => {
         {user ? <div style={{ display: 'flex', marginTop: '10px', flexDirection: 'column', overflowY: 'scroll', height: '750px', backgroundColor: 'GrayText', borderRadius: '8px' }}>{notPublished}</div> : null}
       </div> : <h1 style={{ display: 'flex', color: 'white', justifyContent: 'center', marginTop: '10%' }}>You not have post published.</h1>}</> : <h1 style={{ display: 'flex', justifyContent: 'center', color: 'white' }}>
         <img className="reading" src={carregando} alt="carregando" />
-        </h1>}
+      </h1>}
       {error ? <div style={{ display: 'flex', justifyContent: 'center' }}>{error}</div> : null}
       {newUserid ? <div style={{ display: 'flex', justifyContent: 'center' }}>{newUser}</div> : null}
     </div>
