@@ -8,7 +8,7 @@ import formatDate from "../uteis/formateData";
 import { TbAlignCenter } from "react-icons/tb";
 import { CgComment } from "react-icons/cg";
 import { FiBellOff } from "react-icons/fi";
-import carregando from '../assets/carregando.png'; 
+import carregando from '../assets/carregando.png';
 
 
 const Posts = () => {
@@ -19,6 +19,7 @@ const Posts = () => {
   const [published, setPublished] = useState(false);
   const [error, setError] = useState('');
   const [name, setName] = useState('');
+  const [description, setDescription] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -67,6 +68,7 @@ const Posts = () => {
     }
     const { error, message } = await User(options, 'user/email');
     if (message) {
+      setDescription(true);
       setName(message)
     } else if (error) {
       setError(error);
@@ -135,7 +137,8 @@ const Posts = () => {
       alignItems: 'center',
     }}>
       <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between' }}>
-      <h3 style={{display: 'flex', marginTop: '0.8em', color: 'white'}}>Welcome: <strong>{name.name}</strong></h3>
+        {description ? <h3 style={{ display: 'flex', marginTop: '0.8em', color: 'white' }}>Welcome: <strong>{name.name}</strong></h3> :
+          <h3 style={{ display: 'flex', marginTop: '0.8em', color: 'white' }}>Carregando...</h3>}
         <button
           type="button"
           onClick={clickHome}
