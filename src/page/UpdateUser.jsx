@@ -64,7 +64,7 @@ const UpdateUser = () => {
           style={{
             display: 'flex',
             flexDirection: 'column',
-            width: '50%',
+            width: '80%',
             margin: '0 auto',
             marginBottom: '10px',
             height: '1.5em',
@@ -75,7 +75,7 @@ const UpdateUser = () => {
           style={{
             display: 'flex',
             flexDirection: 'column',
-            width: '50%',
+            width: '80%',
             margin: '0 auto',
             marginBottom: '10px',
             height: '1.5em',

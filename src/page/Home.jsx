@@ -81,7 +81,7 @@ const Home = () => {
           style={{
             display: 'flex',
             flexDirection: 'column',
-            width: '55%',
+            width: '80%',
             margin: '0 auto',
             marginBottom: '10px',
             height: '1.5em',
@@ -92,7 +92,7 @@ const Home = () => {
           style={{
             display: 'flex',
             flexDirection: 'column',
-            width: '55%',
+            width: '80%',
             margin: '0 auto',
             marginBottom: '10px',
             height: '1.5em',
@@ -151,7 +151,7 @@ const Home = () => {
           textAlign: 'center',
           justifyContent: 'center'
         }} className="error-user">{msg}</h2> : null}
-        {redirect ? <h1 style={{
+        {redirect ? <h1 className="error-user" style={{
           display: 'flex',
           flexDirection: 'column',
           width: '50%',
