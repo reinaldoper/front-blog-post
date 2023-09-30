@@ -5,6 +5,7 @@ import login from '../assets/login.png';
 import { BiArchiveIn } from "react-icons/bi";
 import { CgComment } from "react-icons/cg";
 import Button from 'react-bootstrap/Button';
+import { Form } from 'react-bootstrap';
 
 const UpdateUser = () => {
   const [name, setEmail] = useState('');
@@ -57,11 +58,8 @@ const UpdateUser = () => {
         backgroundColor: 'GrayText',
         borderRadius: '10px',
       }}>
-        <h1 style={{ backgroundColor: 'GrayText', }}><strong><em style={{ backgroundColor: 'GrayText', }}>Update User</em></strong></h1>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setEmail(e.target.value)}
+        <h1 style={{ backgroundColor: 'GrayText', }}><strong><em style={{ backgroundColor: 'GrayText', }} className="error-user">Update User</em></strong></h1>
+        <Form.Control size="sm" type="text" value={name} onChange={(e) => setEmail(e.target.value)}
           placeholder="name"
           style={{
             display: 'flex',
@@ -69,10 +67,10 @@ const UpdateUser = () => {
             width: '50%',
             margin: '0 auto',
             marginBottom: '10px',
-            height: '30px',
+            height: '1.5em',
             font: 'large',
-          }}
-        />
+            border: 'none',
+          }} />
         <Button variant="primary" onClick={update}
           style={{
             display: 'flex',

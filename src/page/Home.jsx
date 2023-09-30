@@ -8,6 +8,7 @@ import updateUser from '../assets/update.png';
 import { BiArchiveIn } from "react-icons/bi";
 import { CgComment } from "react-icons/cg";
 import Button from 'react-bootstrap/Button';
+import { Form } from 'react-bootstrap';
 
 const Home = () => {
   const [msg, setMessage] = useState('');
@@ -74,11 +75,8 @@ const Home = () => {
         backgroundColor: 'GrayText',
         borderRadius: '10px',
       }}>
-        <h1 style={{ backgroundColor: 'GrayText', }}><strong><em style={{ backgroundColor: 'GrayText', }}>Login</em></strong></h1>
-        <input
-          type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+        <h1 style={{ backgroundColor: 'GrayText', }}><strong><em style={{ backgroundColor: 'GrayText', }} className="error-user">Login</em></strong></h1>
+        <Form.Control size="sm" type="text" value={email} onChange={(e) => setEmail(e.target.value)}
           placeholder="email"
           style={{
             display: 'flex',
@@ -89,8 +87,7 @@ const Home = () => {
             height: '1.5em',
             font: 'large',
             border: 'none',
-          }}
-        />
+          }} />
         <Button variant="primary" onClick={requeredToken}
           style={{
             display: 'flex',
@@ -153,7 +150,7 @@ const Home = () => {
           font: 'large',
           textAlign: 'center',
           justifyContent: 'center'
-        }}>{msg}</h2> : null}
+        }} className="error-user">{msg}</h2> : null}
         {redirect ? <h1 style={{
           display: 'flex',
           flexDirection: 'column',

@@ -5,6 +5,7 @@ import login from '../assets/login.png';
 import { BiArchiveIn } from "react-icons/bi";
 import { CgComment } from "react-icons/cg";
 import Button from 'react-bootstrap/Button';
+import { Form } from 'react-bootstrap';
 
 const Users = () => {
   const [email, setEmail] = useState('');
@@ -67,11 +68,8 @@ const Users = () => {
         backgroundColor: 'GrayText',
         borderRadius: '10px',
       }}>
-        <h1 style={{ backgroundColor: 'GrayText', }}><strong><em style={{ backgroundColor: 'GrayText', }}>Create User</em></strong></h1>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+        <h1 className="error-user" style={{ backgroundColor: 'GrayText', }}><strong><em style={{ backgroundColor: 'GrayText', }}>Create User</em></strong></h1>
+        <Form.Control size="sm" type="text" value={name} onChange={(e) => setName(e.target.value)}
           placeholder="name"
           style={{
             display: 'flex',
@@ -79,14 +77,11 @@ const Users = () => {
             width: '50%',
             margin: '0 auto',
             marginBottom: '10px',
-            height: '30px',
+            height: '1.5em',
             font: 'large',
-          }}
-        />
-        <input
-          type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+            border: 'none',
+          }} />
+        <Form.Control size="sm" type="text" value={email} onChange={(e) => setEmail(e.target.value)}
           placeholder="email"
           style={{
             display: 'flex',
@@ -94,10 +89,10 @@ const Users = () => {
             width: '50%',
             margin: '0 auto',
             marginBottom: '10px',
-            height: '30px',
+            height: '1.5em',
             font: 'large',
-          }}
-        />
+            border: 'none',
+          }} />
         <Button variant="primary" onClick={creteUser}
           style={{
             display: 'flex',
