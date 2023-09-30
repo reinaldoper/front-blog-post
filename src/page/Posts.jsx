@@ -288,13 +288,9 @@ const Posts = () => {
                         />
                         <label htmlFor="" style={{ display: 'flex', marginLeft: '10px', backgroundColor: '#6e9987' }}>published</label>
                       </div>
-                      <button type="button"
+                      <Button variant="primary"
                         onClick={publish}
-                        style={{
-                          backgroundColor: '#114d4d',
-                          color: 'white',
-                          borderRadius: '5px',
-                        }}>create</button>
+                        >create</Button>
                       {error.length > 0 ? <h4 style={{ backgroundColor: '#6e9987' }}>{error}</h4> : null}
                     </fieldset>
                   </Modal.Body>
@@ -303,7 +299,7 @@ const Posts = () => {
                       Button close
                     </Button>
                     <Button variant="primary" onClick={fechaModal}>
-                      Button save
+                      Button close view
                     </Button>
                   </Modal.Footer>
                 </Modal>
