@@ -7,6 +7,7 @@ import blogContent from '../assets/blog.jpg';
 import updateUser from '../assets/update.png';
 import { BiArchiveIn } from "react-icons/bi";
 import { CgComment } from "react-icons/cg";
+import Button from 'react-bootstrap/Button';
 
 const Home = () => {
   const [msg, setMessage] = useState('');
@@ -54,14 +55,14 @@ const Home = () => {
   return (
     <div>
       <CgComment style={{
-          display: 'flex',
-          margin: '0 auto',
-          width: '10%',
-          height: '8%',
-          borderRadius: '20%',
-          marginTop: '10px',
-          color: 'white',
-        }} />
+        display: 'flex',
+        margin: '0 auto',
+        width: '10%',
+        height: '8%',
+        borderRadius: '20%',
+        marginTop: '10px',
+        color: 'white',
+      }} />
       <div style={{
         display: "flex",
         flexDirection: 'column',
@@ -90,9 +91,7 @@ const Home = () => {
             border: 'none',
           }}
         />
-        <button
-          type="button"
-          onClick={requeredToken}
+        <Button variant="primary" onClick={requeredToken}
           style={{
             display: 'flex',
             flexDirection: 'column',
@@ -107,10 +106,9 @@ const Home = () => {
             alignItems: 'center',
             cursor: 'pointer',
           }}
-          className="button"
-        >
+          className="button">
           <BiArchiveIn />
-        </button>
+        </Button>
         <Link to='/users' className="img-inscrever" style={{ backgroundColor: 'GrayText', color: 'black' }}>
           <img src={inscrever}
             alt="inscrever"

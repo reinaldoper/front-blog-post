@@ -48,6 +48,10 @@ details[open] summary{
   .button{
     font-size: small;
   }
+
+  .error-user{
+    font-size: small;
+  }
   .img-0{
     display: flex;
     justify-content: center;

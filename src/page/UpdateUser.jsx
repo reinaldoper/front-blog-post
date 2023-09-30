@@ -4,6 +4,7 @@ import { User } from "../service/fetch";
 import login from '../assets/login.png';
 import { BiArchiveIn } from "react-icons/bi";
 import { CgComment } from "react-icons/cg";
+import Button from 'react-bootstrap/Button';
 
 const UpdateUser = () => {
   const [name, setEmail] = useState('');
@@ -72,26 +73,24 @@ const UpdateUser = () => {
             font: 'large',
           }}
         />
-        <button
-          type="button"
-          onClick={update}
+        <Button variant="primary" onClick={update}
           style={{
             display: 'flex',
             flexDirection: 'column',
             width: '50%',
             margin: '0 auto',
             marginBottom: '10px',
-            height: '30px',
+            height: '1.5em',
             font: 'large',
             textAlign: 'center',
             justifyContent: 'center',
             backgroundColor: 'blueviolet',
-            cursor: 'pointer',
             alignItems: 'center',
+            cursor: 'pointer',
           }}
-        >
+          className="button">
           <BiArchiveIn />
-        </button>
+        </Button>
         <Link to='/'
           style={{ backgroundColor: 'GrayText', color: 'black' }}>
           <img src={login}
@@ -109,7 +108,7 @@ const UpdateUser = () => {
             }}
           />
         </Link>
-        {msg.length > 0 ? <h2 style={{
+        {msg.length > 0 ? <h2 className="error-user" style={{
           display: 'flex',
           flexDirection: 'column',
           width: '50%',
