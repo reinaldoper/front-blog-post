@@ -118,7 +118,7 @@ const Users = () => {
             style={{
               display: 'flex',
               cursor: 'pointer',
-              width: '100px',
+              width: '7vw',
               borderRadius: '5px',
               marginBottom: '10px',
               marginLeft: '0.5em',

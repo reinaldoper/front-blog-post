@@ -112,8 +112,8 @@ const Home = () => {
             style={{
               display: 'flex',
               cursor: 'pointer',
-              width: '5em',
-              height: '5em',
+              width: '7vw',
+              height: '7vh',
               borderRadius: '5px',
               marginBottom: '10px',
               marginLeft: '0.5em',
@@ -129,8 +129,8 @@ const Home = () => {
             style={{
               display: 'flex',
               cursor: 'pointer',
-              width: '5em',
-              height: '5em',
+              width: '7vw',
+              height: '5vh',
               borderRadius: '5px',
               marginBottom: '10px',
               marginLeft: '0.5em',
@@ -174,12 +174,12 @@ const Home = () => {
         fontSize: '20px'
       }}>
         <div style={{ display: 'flex', flexDirection: 'row' }} className="img-blogs">
-          <img className="img-0" src={blog} alt="blog" style={{ borderRadius: '20px 0', marginRight: '0.5em' }} />
-          <img className="img-1" src={blogContent} alt="blog" style={{ borderRadius: '20px 0', marginLeft: '0.5em' }} />
+          <img className="img-0" src={blog} alt="blog" style={{ borderRadius: '20px', marginRight: '0.5em' }} />
+          <img className="img-1" src={blogContent} alt="blog" style={{ borderRadius: '20px', marginLeft: '0.5em' }} />
         </div>
       </p>
       <hr style={{ width: '50%', margin: 'auto', marginTop: '10px', color: 'white' }} />
-      <h2 style={{ display: 'flex', justifyContent: 'center', margin: 'auto', marginTop: '10px', color: 'white' }}>All rights reserved &reg;</h2>
+      <h2 style={{ display: 'flex', justifyContent: 'center', margin: 'auto', marginTop: '10px', color: 'white', width: '50%', }}>All rights reserved &reg;</h2>
     </div>
   )
 }
