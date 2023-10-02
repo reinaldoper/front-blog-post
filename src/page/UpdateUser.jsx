@@ -1,14 +1,10 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { User } from "../service/fetch";
-import login from '../assets/login.png';
-import { BiArchiveIn } from "react-icons/bi";
-import { CgComment } from "react-icons/cg";
-import Button from 'react-bootstrap/Button';
-import { Form } from 'react-bootstrap';
+import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
 
 const UpdateUser = () => {
-  const [name, setEmail] = useState('');
+  const [name, setName] = useState('');
   const [msg, setMessage] = useState('');
 
   const navigate = useNavigate();
@@ -27,10 +23,10 @@ const UpdateUser = () => {
     const { message, error } = await User(options, 'user');
     if (error) {
       setMessage(error);
-      setEmail('');
+      setName('');
     } else if (message) {
       setMessage('');
-      setEmail('');
+      setName('');
       navigate('/');
     }
   }
@@ -38,87 +34,46 @@ const UpdateUser = () => {
 
   return (
     <div>
-      <CgComment style={{
-        display: 'flex',
-        margin: '0 auto',
-        width: '10%',
-        height: '8%',
-        borderRadius: '20%',
-        marginTop: '10px',
-        color: 'white',
-      }} />
-      <div style={{
-        display: "flex",
-        flexDirection: 'column',
-        border: 'none',
-        padding: '10px',
-        width: '30%',
-        margin: '0 auto',
-        marginTop: '10px',
-        backgroundColor: 'GrayText',
-        borderRadius: '10px',
-      }}>
-        <h1 style={{ backgroundColor: 'GrayText', }}><strong><em style={{ backgroundColor: 'GrayText', }} className="error-user">Update User</em></strong></h1>
-        <Form.Control size="sm" type="text" value={name} onChange={(e) => setEmail(e.target.value)}
-          placeholder="name"
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            width: '80%',
-            margin: '0 auto',
-            marginBottom: '10px',
-            height: '1.5em',
-            font: 'large',
-            border: 'none',
-          }} />
-        <Button variant="primary" onClick={update}
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            width: '80%',
-            margin: '0 auto',
-            marginBottom: '10px',
-            height: '1.5em',
-            font: 'large',
-            textAlign: 'center',
-            justifyContent: 'center',
-            backgroundColor: 'blueviolet',
-            alignItems: 'center',
-            cursor: 'pointer',
-          }}
-          className="button">
-          <BiArchiveIn />
-        </Button>
-        <Link to='/'
-          style={{ backgroundColor: 'GrayText', color: 'black' }}>
-          <img src={login}
-            alt="login"
-            style={{
-              display: 'flex',
-              cursor: 'pointer',
-              width: '7vw',
-              borderRadius: '5px',
-              marginBottom: '10px',
-              marginLeft: '0.5em',
-              marginTop: '0.5em',
-              outline: '0px auto -webkit-focus-ring-color',
-              outlineOffset: '0px',
-            }}
-          />
-        </Link>
-        {msg.length > 0 ? <h2 className="error-user" style={{
-          display: 'flex',
-          flexDirection: 'column',
-          width: '50%',
-          margin: '0 auto',
-          marginBottom: '10px',
-          backgroundColor: 'GrayText',
-          font: 'large',
-          textAlign: 'center',
-          justifyContent: 'center'
-        }}>{msg}</h2> : null}
-      </div>
-      <hr style={{ width: '50%', margin: 'auto', marginTop: '10px' }} />
+      <Container>
+        <Row className="vh-100 d-flex justify-content-center align-items-center">
+          <Col md={8} lg={6} xs={12}>
+            <div className="border border-3 border-primary"></div>
+            <Card className="shadow">
+              <Card.Body>
+                <div className="mb-3 mt-md-4">
+                  <h2 className="fw-bold mb-2 text-uppercase ">Brand</h2>
+                  <p className=" mb-5">Please enter your name!</p>
+                  <div className="mb-3">
+                    <Form>
+                      <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label className="text-center">
+                          Name
+                        </Form.Label>
+                        <Form.Control type="text" placeholder="Enter name" value={name} onChange={(e) => setName(e.target.value)} />
+                      </Form.Group>
+
+                      <div className="d-grid">
+                        <Button variant="primary" type="button" onClick={update}>
+                          Update
+                        </Button>
+                      </div>
+                    </Form>
+                    <div className="mt-3">
+                      <p className="mb-0  text-center">
+                        <Link to="/" >Login</Link>
+                      </p>
+            
+                    </div>
+                  </div>
+                </div>
+                {msg.length > 0 ? <h2>{msg}</h2> : null}
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+
+      </Container>
+
     </div>
   )
 }

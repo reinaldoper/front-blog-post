@@ -1,14 +1,7 @@
 import { useState } from "react"
 import { User } from "../service/fetch";
 import { useNavigate, Link } from "react-router-dom";
-import inscrever from '../assets/inscrever.png';
-import blog from '../assets/images.jpeg';
-import blogContent from '../assets/blog.jpg';
-import updateUser from '../assets/update.png';
-import { BiArchiveIn } from "react-icons/bi";
-import { CgComment } from "react-icons/cg";
-import Button from 'react-bootstrap/Button';
-import { Form } from 'react-bootstrap';
+import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
 
 const Home = () => {
   const [msg, setMessage] = useState('');
@@ -19,6 +12,7 @@ const Home = () => {
   const requeredToken = async () => {
     if (!validarEmail(email)) {
       setMessage('Email is not valid.');
+      setRedirect(true);
       setEmail('');
     } else {
       setMessage('');
@@ -33,7 +27,7 @@ const Home = () => {
 
       const { token, error } = await User(options, 'user/token');
       if (error) {
-        setRedirect(false);
+        setRedirect(true);
         setMessage(error);
         setEmail('');
       } else if (token) {
@@ -55,131 +49,48 @@ const Home = () => {
 
   return (
     <div>
-      <CgComment style={{
-        display: 'flex',
-        margin: '0 auto',
-        width: '10%',
-        height: '8%',
-        borderRadius: '20%',
-        marginTop: '10px',
-        color: 'white',
-      }} />
-      <div style={{
-        display: "flex",
-        flexDirection: 'column',
-        border: 'none',
-        padding: '10px',
-        width: '30%',
-        margin: '0 auto',
-        marginTop: '10px',
-        backgroundColor: 'GrayText',
-        borderRadius: '10px',
-      }}>
-        <h1 style={{ backgroundColor: 'GrayText', }}><strong><em style={{ backgroundColor: 'GrayText', }} className="error-user">Login</em></strong></h1>
-        <Form.Control size="sm" type="text" value={email} onChange={(e) => setEmail(e.target.value)}
-          placeholder="email"
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            width: '80%',
-            margin: '0 auto',
-            marginBottom: '10px',
-            height: '1.5em',
-            font: 'large',
-            border: 'none',
-          }} />
-        <Button variant="primary" onClick={requeredToken}
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            width: '80%',
-            margin: '0 auto',
-            marginBottom: '10px',
-            height: '1.5em',
-            font: 'large',
-            textAlign: 'center',
-            justifyContent: 'center',
-            backgroundColor: 'blueviolet',
-            alignItems: 'center',
-            cursor: 'pointer',
-          }}
-          className="button">
-          <BiArchiveIn />
-        </Button>
-        <Link to='/users' className="img-inscrever" style={{ backgroundColor: 'GrayText', color: 'black' }}>
-          <img src={inscrever}
-            alt="inscrever"
-            style={{
-              display: 'flex',
-              cursor: 'pointer',
-              width: '7vw',
-              height: '7vh',
-              borderRadius: '5px',
-              marginBottom: '10px',
-              marginLeft: '0.5em',
-              marginTop: '0.5em',
-              outline: '0px auto -webkit-focus-ring-color',
-              outlineOffset: '0px',
-            }}
-          />
-        </Link>
-        <Link to='/update-user' style={{ backgroundColor: 'GrayText', color: 'black' }}>
-          <img src={updateUser}
-            alt="updateUser"
-            style={{
-              display: 'flex',
-              cursor: 'pointer',
-              width: '7vw',
-              height: '5vh',
-              borderRadius: '5px',
-              marginBottom: '10px',
-              marginLeft: '0.5em',
-              marginTop: '0.5em',
-              outline: '0px auto -webkit-focus-ring-color',
-              outlineOffset: '0px',
-            }}
-          />
-        </Link>
-        {msg.length ? <h2 style={{
-          display: 'flex',
-          flexDirection: 'column',
-          width: '50%',
-          margin: '0 auto',
-          marginBottom: '10px',
-          backgroundColor: 'GrayText',
-          font: 'large',
-          textAlign: 'center',
-          justifyContent: 'center'
-        }} className="error-user">{msg}</h2> : null}
-        {redirect ? <h1 className="error-user" style={{
-          display: 'flex',
-          flexDirection: 'column',
-          width: '50%',
-          margin: '0 auto',
-          marginBottom: '10px',
-          backgroundColor: 'GrayText',
-          font: 'large',
-          textAlign: 'center',
-          justifyContent: 'center'
-        }}>Carregando...</h1> : null}
-      </div>
-      <hr style={{ width: '50%', margin: 'auto', marginTop: '10px', color: 'white' }} />
-      <p style={{
-        display: 'flex',
-        width: '25%',
-        margin: 'auto',
-        marginTop: '15px',
-        justifyContent: 'center',
-        alignContent: 'justify',
-        fontSize: '20px'
-      }}>
-        <div style={{ display: 'flex', flexDirection: 'row' }} className="img-blogs">
-          <img className="img-0" src={blog} alt="blog" style={{ borderRadius: '20px', marginRight: '0.5em' }} />
-          <img className="img-1" src={blogContent} alt="blog" style={{ borderRadius: '20px', marginLeft: '0.5em' }} />
-        </div>
-      </p>
-      <hr style={{ width: '50%', margin: 'auto', marginTop: '10px', color: 'white' }} />
-      <h2 style={{ display: 'flex', justifyContent: 'center', margin: 'auto', marginTop: '10px', color: 'white', width: '50%', }}>All rights reserved &reg;</h2>
+      <Container>
+        <Row className="vh-100 d-flex justify-content-center align-items-center">
+          <Col md={8} lg={6} xs={12}>
+            <div className="border border-3 border-primary"></div>
+            <Card className="shadow">
+              <Card.Body>
+                <div className="mb-3 mt-md-4">
+                  <h2 className="fw-bold mb-2 text-uppercase ">Brand</h2>
+                  <p className=" mb-5">Please enter your email!</p>
+                  <div className="mb-3">
+                    <Form>
+                      <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label className="text-center">
+                          Email address
+                        </Form.Label>
+                        <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} />
+                      </Form.Group>
+
+                      <div className="d-grid">
+                        <Button variant="primary" type="button" onClick={requeredToken}>
+                          Login
+                        </Button>
+                      </div>
+                    </Form>
+                    <div className="mt-3">
+                      <p className="mb-0  text-center">
+                        <Link to="/users" >Create User</Link>
+                      </p>
+                      <p className="mb-0  text-center">
+                        <Link to="/update-user" >User update</Link>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                {redirect ? <h2>{msg}</h2> : null}
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+
+      </Container>
+
     </div>
   )
 }
