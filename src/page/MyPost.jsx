@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react"
 import { User, Post } from "../service/fetch";
-import remove from '../assets/remove.png';
 import formatDate from "../uteis/formateData";
-import { CgComment } from "react-icons/cg";
 import carregando from '../assets/carregando.png';
 import NavbarSistem from "../components/Navbar";
+import { Button } from "react-bootstrap";
 
 const MyPost = () => {
   const [post, setPost] = useState([]);
@@ -66,31 +65,29 @@ const MyPost = () => {
 
   const published = post.map((post) => (
     <div key={post.id} style={{ display: 'flex', justifyContent: 'center', width: '30vw', marginTop: '0.3em', borderRadius: '10px 0' }}>
-      {post.published ? <ol style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white', width: '90%', padding: '20px', borderRadius: '10px 0', boxShadow: '5px 5px 10px #063940' }}>
-        <CgComment />
-        <li><em style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>published</em></li>
-        <li><strong style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>{post.title}</strong></li>
-        <li style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>{post.content}</li>
-        <li style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>{formatDate(post.created)}</li>
-        <li><button type="button" style={{ width: '100%', border: 'none' }} onClick={() => removePost(post.id)}>
-          <img src={remove} alt="remove" style={{ width: '10%' }} />
-        </button></li>
-      </ol> : null}
+      {post.published ? <div className="card" style={{width: '40vw'}}>
+        <div className="card-body">
+        <h6 className="card-subtitle mb-2 text-muted">published</h6>
+          <h5 className="card-title">{post.title}</h5>
+          <h6 className="card-subtitle mb-2 text-muted">{formatDate(post.created)}</h6>
+          <p className="card-text">{post.content}</p>
+          <Button onClick={() => removePost(post.id)} className="btn btn-primary">Remove</Button>
+        </div>
+      </div>: null}
     </div>
   ));
 
   const notPublished = post.map((post) => (
     <div key={post.id} style={{ display: 'flex', justifyContent: 'center', width: '30vw', marginTop: '0.3em', borderRadius: '10px 0' }}>
-      {!post.published ? <ol style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white', width: '90%', padding: '20px', borderRadius: '10px 0', boxShadow: '5px 5px 10px #063940' }}>
-        <CgComment />
-        <li><em style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>not-published</em></li>
-        <li><strong style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>{post.title}</strong></li>
-        <li style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>{post.content}</li>
-        <li style={{ display: 'flex', flexDirection: 'column', backgroundColor: 'white' }}>{formatDate(post.created)}</li>
-        <li><button type="button" style={{ width: '100%', border: 'none' }} onClick={() => removePost(post.id)}>
-          <img src={remove} alt="remove" style={{ width: '10%' }} />
-        </button></li>
-      </ol> : null}
+      {!post.published ? <div className="card" style={{width: '40vw'}}>
+        <div className="card-body">
+        <h6 className="card-subtitle mb-2 text-muted">published</h6>
+          <h5 className="card-title">{post.title}</h5>
+          <h6 className="card-subtitle mb-2 text-muted">{formatDate(post.created)}</h6>
+          <p className="card-text">{post.content}</p>
+          <Button onClick={() => removePost(post.id)} className="btn btn-primary">Remove</Button>
+        </div>
+      </div> : null}
     </div>
   ));
 

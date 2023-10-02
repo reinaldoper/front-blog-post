@@ -76,19 +76,15 @@ const Posts = () => {
 
 
   const resultUser = user.map((item) => (
-    <ul key={item.id} style={{
-      backgroundColor: '#aebfaf',
-      color: 'black',
-      borderRadius: '5px 0',
-      marginBottom: '50px',
-      overflowY: 'auto',
-      boxShadow: '5px 5px 10px #063940'
-    }}>
-      <CgComment />
-      <li><h4 style={{ backgroundColor: '#aebfaf', }}><em style={{ backgroundColor: '#aebfaf', }}>{item.title}</em></h4></li>
-      <li><p style={{ backgroundColor: '#aebfaf', }}>{item.content}</p></li>
-      <li style={{ backgroundColor: '#aebfaf', }}>{formatDate(item.created)}</li>
-    </ul>
+    
+      <div className="card" style={{width: '43vw'}} key={item.id}>
+        <div className="card-body">
+          <h5 className="card-title">{item.title}</h5>
+          <h6 className="card-subtitle mb-2 text-muted">{formatDate(item.created)}</h6>
+          <p className="card-text">{item.content}</p>
+        </div>
+      </div>
+    
   ));
 
 
