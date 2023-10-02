@@ -81,7 +81,7 @@ const MyPost = () => {
     <div key={post.id} style={{ display: 'flex', justifyContent: 'center', width: '30vw', marginTop: '0.3em', borderRadius: '10px 0' }}>
       {!post.published ? <div className="card" style={{width: '40vw'}}>
         <div className="card-body">
-        <h6 className="card-subtitle mb-2 text-muted">published</h6>
+        <h6 className="card-subtitle mb-2 text-muted">not-published</h6>
           <h5 className="card-title">{post.title}</h5>
           <h6 className="card-subtitle mb-2 text-muted">{formatDate(post.created)}</h6>
           <p className="card-text">{post.content}</p>
