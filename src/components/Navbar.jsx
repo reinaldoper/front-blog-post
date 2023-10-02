@@ -38,7 +38,7 @@ const NavbarUser = () => {
   }
 
   return (
-    <Navbar expand="lg" className="bg-body-tertiary">
+    <Navbar expand="lg" className="bg-body-primary">
       <Container style={{ backgroundColor: '#bbdec6', borderRadius: '5px'}}>
         <Navbar.Brand as={Link} to="/">Login - Page</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -55,8 +55,8 @@ const NavbarUser = () => {
             </NavDropdown>
           </Nav>
           {error.length > 0 ? <h2>{error}</h2>: null}
-          { description ? <span style={{marginRight: '1.5vw'}}>Name: { name.name }</span>: <h2>Carregando...</h2>}
-          { description ? <span style={{marginLeft: '1.5vw'}}>Email: { name.email } </span>: <h2>Carregando...</h2> }
+          { description ? <span style={{marginRight: '1.5vw'}}>Name: { name.name }</span>: <h4>Carregando...</h4>}
+          { description ? <span style={{marginLeft: '1.5vw'}}>Email: { name.email } </span>: <h4>Carregando...</h4> }
         </Navbar.Collapse>
       </Container>
     </Navbar>
