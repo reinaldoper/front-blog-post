@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react"
 import { User, Post } from "../service/fetch";
 import remove from '../assets/update.png';
-import { useNavigate } from "react-router-dom";
 import formatDate from "../uteis/formateData";
 import { CgComment } from "react-icons/cg";
-import { ImHome2 } from "react-icons/im";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import carregando from '../assets/carregando.png';
+import NavbarSistem from "../components/Navbar";
 
 const UpdatePost = () => {
   const [post, setPost] = useState([]);
@@ -22,15 +21,10 @@ const UpdatePost = () => {
 
   const fechaModal = () => setShow(false);
   const abrirModal = () => setShow(true);
-  const navigate = useNavigate();
 
   useEffect(() => {
     result();
   }, []);
-
-  const returnPost = () => {
-    navigate('/posts');
-  }
 
   const result = async () => {
     const token = localStorage.getItem('token');
@@ -193,25 +187,13 @@ const UpdatePost = () => {
 
   return (
     <div>
+      <NavbarSistem />
       <h3 style={{
         display: 'flex',
         margin: 'auto',
         justifyContent: 'center',
         color: 'white',
       }}>Update Post</h3>
-      <hr style={{ width: '80%', margin: 'auto', marginTop: '10px', color: 'white' }} />
-      <button type="button" onClick={returnPost} style={{
-        display: 'flex',
-        justifyContent: 'center',
-        margin: 'auto',
-        marginTop: '5px',
-        width: '20%',
-        borderRadius: '5px',
-        backgroundColor: '#8ebdb6',
-        border: 'none',
-        padding: '10px',
-        height: '2.4em',
-      }}><ImHome2 /></button>
       <hr style={{ width: '80%', margin: 'auto', marginTop: '10px', color: 'white' }} />
       {user ? <>{post.length > 0 ? <div style={{ display: 'flex', margin: 'auto', textAlign: 'justify', justifyContent: 'center' }}>
         {user ? <div style={{ display: 'flex', marginTop: '10px', flexDirection: 'column', overflowY: 'scroll', height: '750px', backgroundColor: 'GrayText', borderRadius: '8px' }}>{published}</div> : null}

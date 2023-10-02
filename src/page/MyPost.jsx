@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react"
 import { User, Post } from "../service/fetch";
 import remove from '../assets/remove.png';
-import { useNavigate } from "react-router-dom";
 import formatDate from "../uteis/formateData";
 import { CgComment } from "react-icons/cg";
-import { ImHome2 } from "react-icons/im";
-import carregando from '../assets/carregando.png'; 
+import carregando from '../assets/carregando.png';
+import NavbarSistem from "../components/Navbar";
 
 const MyPost = () => {
   const [post, setPost] = useState([]);
@@ -15,15 +14,11 @@ const MyPost = () => {
   const [userid, setUserid] = useState(false);
   const [newUser, setNewUser] = useState('');
   const [newUserid, setNewUserid] = useState(false);
-  const navigate = useNavigate();
+ 
 
   useEffect(() => {
     result();
   }, []);
-
-  const returnPost = () => {
-    navigate('/posts');
-  }
 
   const result = async () => {
     const token = localStorage.getItem('token');
@@ -103,32 +98,21 @@ const MyPost = () => {
 
   return (
     <div>
+      <NavbarSistem />
       <h3 style={{
         display: 'flex',
         margin: 'auto',
         justifyContent: 'center',
         color: 'white',
       }}>Post published    |    Post not-published</h3>
-      <hr style={{ width: '80%', margin: 'auto', marginTop: '10px', color: 'white' }} />
-      <button type="button" onClick={returnPost} style={{
-        display: 'flex',
-        justifyContent: 'center',
-        margin: 'auto',
-        marginTop: '5px',
-        width: '20%',
-        borderRadius: '5px',
-        backgroundColor: '#8ebdb6',
-        border: 'none',
-        padding: '10px',
-        height: '2.4em',
-      }}><ImHome2 /></button>
+      
       <hr style={{ width: '80%', margin: 'auto', marginTop: '10px', color: 'white' }} />
       {user ? <>{post.length > 0 ? <div style={{ display: 'flex', margin: 'auto', textAlign: 'justify', justifyContent: 'center' }}>
         {user ? <div style={{ display: 'flex', marginTop: '10px', flexDirection: 'column', overflowY: 'scroll', height: '750px', backgroundColor: 'GrayText', borderRadius: '8px' }}>{published}</div> : null}
         {user ? <div style={{ display: 'flex', marginTop: '10px', flexDirection: 'column', overflowY: 'scroll', height: '750px', backgroundColor: 'GrayText', borderRadius: '8px' }}>{notPublished}</div> : null}
       </div> : <h1 style={{ display: 'flex', color: 'white', justifyContent: 'center', marginTop: '10%' }}>You not have post published.</h1>}</> : <h1 style={{ display: 'flex', justifyContent: 'center', color: 'white' }}>
-      <img className="reading" src={carregando} alt="carregando" />
-        </h1>}
+        <img className="reading" src={carregando} alt="carregando" />
+      </h1>}
       {error ? <div style={{ display: 'flex', justifyContent: 'center' }}>{error}</div> : null}
       {userid ? <div style={{ display: 'flex', justifyContent: 'center' }}>{msg}</div> : null}
       {newUserid ? <div style={{ display: 'flex', justifyContent: 'center' }}>{newUser}</div> : null}
