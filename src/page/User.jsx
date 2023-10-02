@@ -51,7 +51,7 @@ const Users = () => {
             <Card className="shadow">
               <Card.Body>
                 <div className="mb-3 mt-md-4">
-                  <h2 className="fw-bold mb-2 text-uppercase ">Brand</h2>
+                  <h2 className="fw-bold mb-2 text-uppercase ">User create</h2>
                   <p className=" mb-5">Please enter your name and email!</p>
                   <div className="mb-3">
                     <Form>

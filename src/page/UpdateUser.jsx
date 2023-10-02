@@ -41,7 +41,7 @@ const UpdateUser = () => {
             <Card className="shadow">
               <Card.Body>
                 <div className="mb-3 mt-md-4">
-                  <h2 className="fw-bold mb-2 text-uppercase ">Brand</h2>
+                  <h2 className="fw-bold mb-2 text-uppercase ">User update</h2>
                   <p className=" mb-5">Please enter your name!</p>
                   <div className="mb-3">
                     <Form>
