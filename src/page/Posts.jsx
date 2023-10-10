@@ -90,7 +90,7 @@ const Posts = () => {
 
   return (
     <div>
-      <NavbarSistem />
+      <h5 className="card-title"><NavbarSistem /></h5>
       <div style={{
         display: 'flex',
         flexDirection: 'column',

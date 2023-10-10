@@ -193,7 +193,7 @@ const UpdatePost = () => {
 
   return (
     <div>
-      <NavbarSistem />
+      <h5 className="card-title"><NavbarSistem /></h5>
       <h3 style={{
         display: 'flex',
         margin: 'auto',
