@@ -15,7 +15,7 @@ const Home = () => {
       setRedirect(true);
       setEmail('');
     } else {
-      setMessage('');
+      setMessage('Carregando...');
       setRedirect(true);
       const options = {
         method: "PATCH",
@@ -31,7 +31,7 @@ const Home = () => {
         setMessage(error);
         setEmail('');
       } else if (token) {
-        setMessage('');
+        setRedirect(true);
         setEmail('');
         localStorage.setItem('token', token);
         localStorage.setItem('email', email);
