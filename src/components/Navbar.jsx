@@ -38,7 +38,7 @@ const NavbarUser = () => {
   }
 
   return (
-    <Navbar expand="lg" className="bg-body-primary" data-aos="fade-right">
+    <Navbar expand="lg" className="bg-body-primary">
       <Container style={{ backgroundColor: '#bbdec6', borderRadius: '5px'}}>
         <Navbar.Brand as={Link} to="/">Login - Page</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
