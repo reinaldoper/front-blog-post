@@ -64,7 +64,7 @@ const MyPost = () => {
 
 
   const published = post.map((post) => (
-    <div key={post.id} style={{ display: 'flex', justifyContent: 'center', width: '30vw', marginTop: '0.3em', borderRadius: '10px 0' }}>
+    <div data-aos="flip-left" key={post.id} style={{ display: 'flex', justifyContent: 'center', width: '30vw', marginTop: '0.3em', borderRadius: '10px 0' }}>
       {post.published ? <div className="card" style={{ width: '40vw' }}>
         <div className="card-body">
           <h6 className="card-subtitle mb-2 text-muted">published</h6>
@@ -87,7 +87,7 @@ const MyPost = () => {
   
 
   const notPublished = post.map((post) => (
-    <div key={post.id} style={{ display: 'flex', justifyContent: 'center', width: '30vw', marginTop: '0.3em', borderRadius: '10px 0' }}>
+    <div data-aos="flip-left" key={post.id} style={{ display: 'flex', justifyContent: 'center', width: '30vw', marginTop: '0.3em', borderRadius: '10px 0' }}>
       {!post.published ? <div className="card" style={{ width: '40vw' }}>
         <div className="card-body">
           <h6 className="card-subtitle mb-2 text-muted">not-published</h6>

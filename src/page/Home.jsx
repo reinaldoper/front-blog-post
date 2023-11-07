@@ -2,8 +2,13 @@ import { useState } from "react"
 import { User } from "../service/fetch";
 import { useNavigate, Link } from "react-router-dom";
 import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Home = () => {
+  AOS.init({
+      duration: 2500,
+    });
   const [msg, setMessage] = useState('');
   const [email, setEmail] = useState('');
   const [redirect, setRedirect] = useState(false);
@@ -49,7 +54,7 @@ const Home = () => {
 
   return (
     <div>
-      <Container>
+      <Container data-aos="zoom-in">
         <Row className="vh-100 d-flex justify-content-center align-items-center">
           <Col md={8} lg={6} xs={12}>
             <div className="border border-3 border-primary"></div>

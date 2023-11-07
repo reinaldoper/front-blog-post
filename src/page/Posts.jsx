@@ -77,7 +77,7 @@ const Posts = () => {
 
   const resultUser = user.map((item) => (
     
-      <div className="card" style={{width: '43vw'}} key={item.id}>
+      <div className="card" style={{width: '43vw'}} key={item.id} data-aos="flip-left">
         <div className="card-body">
           <h5 className="card-title">{item.title}</h5>
           <h6 className="card-subtitle mb-2 text-muted">{formatDate(item.created)}</h6>
@@ -104,6 +104,7 @@ const Posts = () => {
         <hr style={{ width: '80%', margin: 'auto', marginTop: '10px', color: 'white' }} />
         <div style={{ display: "flex" }} className="blogs">
           {user.length > 0 ? <div className="results"
+            data-aos="zoom-in-down"
             style={{
               backgroundColor: '#6e9987',
               width: '45vw',
