@@ -56,7 +56,10 @@ const Home = () => {
     const data = new Date();
     const dia = data.getDate();
     const ano = data.getFullYear();
-    const month = data.getMonth();
+    let month = data.getMonth();
+    if (month === 12){
+      month = 0;
+    }
     const hs = data.getHours();
     let saudacao = ''
     if (hs > 5 && hs < 12) {
@@ -66,7 +69,7 @@ const Home = () => {
     } else {
       saudacao = 'Boa noite'
     }
-    return `${dia}/${month}/${ano} - ${saudacao}`;
+    return `${dia}/${month + 1}/${ano} - ${saudacao}`;
   }
 
   return (
