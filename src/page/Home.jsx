@@ -52,6 +52,23 @@ const Home = () => {
     return re.test(email);
   }
 
+  const date = () => {
+    const data = new Date();
+    const dia = data.getDate();
+    const ano = data.getFullYear();
+    const month = data.getMonth();
+    const hs = data.getHours();
+    let saudacao = ''
+    if (hs > 5 && hs < 12) {
+      saudacao = 'Bom dia!'
+    } else if(hs > 12 && hs < 17) {
+      saudacao = 'Boa tarde'
+    } else {
+      saudacao = 'Boa noite'
+    }
+    return `${dia}/${month}/${ano} - ${saudacao}`;
+  }
+
   return (
     <div>
       <Container data-aos="zoom-in">
@@ -65,6 +82,7 @@ const Home = () => {
                   <p className=" mb-5">Please enter your email!</p>
                   <div className="mb-3">
                     <Form>
+                      <h2>{date()}</h2>
                       <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label className="text-center">
                           Email address
