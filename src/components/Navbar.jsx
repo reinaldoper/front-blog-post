@@ -36,10 +36,30 @@ const NavbarUser = () => {
       setError(error);
     }
   }
+  const date = () => {
+    const data = new Date();
+    const dia = data.getDate();
+    const ano = data.getFullYear();
+    let month = data.getMonth();
+    if (month === 12){
+      month = 0;
+    }
+    const hs = data.getHours();
+    let saudacao = ''
+    if (hs > 5 && hs < 12) {
+      saudacao = 'Bom dia!'
+    } else if(hs > 12 && hs < 17) {
+      saudacao = 'Boa tarde'
+    } else {
+      saudacao = 'Boa noite'
+    }
+    return `${dia}/${month + 1}/${ano} - ${saudacao}`;
+  }
 
   return (
     <Navbar expand="lg" className="bg-body-primary">
       <Container style={{ backgroundColor: '#bbdec6', borderRadius: '5px'}}>
+      {date() + '-->'}
         <Navbar.Brand as={Link} to="/">Login - Page</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
