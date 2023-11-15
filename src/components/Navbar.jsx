@@ -44,16 +44,7 @@ const NavbarUser = () => {
     if (month === 12){
       month = 0;
     }
-    const hs = data.getHours();
-    let saudacao = ''
-    if (hs > 5 && hs < 12) {
-      saudacao = 'Bom dia!'
-    } else if(hs > 12 && hs < 17) {
-      saudacao = 'Boa tarde'
-    } else {
-      saudacao = 'Boa noite'
-    }
-    return `${dia}/${month + 1}/${ano} - ${saudacao}`;
+    return `${dia}/${month + 1}/${ano}`;
   }
 
   return (
