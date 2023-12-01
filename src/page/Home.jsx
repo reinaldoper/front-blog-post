@@ -69,7 +69,11 @@ const Home = () => {
     } else {
       saudacao = 'Boa noite'
     }
-    return `${dia}/${month + 1}/${ano} - ${saudacao}`;
+    if(dia < 10) {
+      return `0${dia}/${month + 1}/${ano} - ${saudacao}`;
+    } else {
+      return `${dia}/${month + 1}/${ano} - ${saudacao}`;
+    }
   }
 
   return (
