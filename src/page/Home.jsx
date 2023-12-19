@@ -62,7 +62,7 @@ const Home = () => {
     }
     const hs = data.getHours();
     let saudacao = ''
-    if (hs > 5 && hs < 12) {
+    if (hs > 5 && hs <= 12) {
       saudacao = 'Bom dia!'
     } else if(hs > 12 && hs < 17) {
       saudacao = 'Boa tarde'
