@@ -7,8 +7,8 @@ import 'aos/dist/aos.css';
 
 const Home = () => {
   AOS.init({
-      duration: 2500,
-    });
+    duration: 2500,
+  });
   const [msg, setMessage] = useState('');
   const [email, setEmail] = useState('');
   const [redirect, setRedirect] = useState(false);
@@ -57,19 +57,22 @@ const Home = () => {
     const dia = data.getDate();
     const ano = data.getFullYear();
     let month = data.getMonth();
-    if (month === 12){
+    if (month === 12) {
       month = 0;
     }
     const hs = data.getHours();
-    let saudacao = ''
-    if (hs > 5 && hs <= 12) {
-      saudacao = 'Bom dia!'
-    } else if(hs > 12 && hs < 17) {
-      saudacao = 'Boa tarde'
+    
+    const horasNumericas = parseInt(hs, 10);
+    console.log(horasNumericas);
+    let saudacao = '';
+    if (horasNumericas >= 5 && horasNumericas <= 12) {
+      saudacao = 'Bom dia!';
+    } else if (horasNumericas > 12 && horasNumericas <= 17) {
+      saudacao = 'Boa tarde';
     } else {
-      saudacao = 'Boa noite'
+      saudacao = 'Boa noite';
     }
-    if(dia < 10) {
+    if (dia < 10) {
       return `0${dia}/${month + 1}/${ano} - ${saudacao}`;
     } else {
       return `${dia}/${month + 1}/${ano} - ${saudacao}`;
