@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState } from "react";
 import { User } from "../service/fetch";
 import { useNavigate, Link } from "react-router-dom";
 import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
@@ -9,19 +9,21 @@ const Home = () => {
   AOS.init({
     duration: 2500,
   });
+
   const [msg, setMessage] = useState('');
   const [email, setEmail] = useState('');
   const [redirect, setRedirect] = useState(false);
   const navigate = useNavigate();
 
-  const requeredToken = async () => {
-    if (!validarEmail(email)) {
+  const requiredToken = async () => {
+    if (!validateEmail(email)) {
       setMessage('Email is not valid.');
       setRedirect(true);
       setEmail('');
     } else {
-      setMessage('Carregando...');
+      setMessage('Loading...');
       setRedirect(true);
+
       const options = {
         method: "PATCH",
         body: JSON.stringify({ email: email }),
@@ -30,48 +32,56 @@ const Home = () => {
         }
       }
 
-      const { token, error } = await User(options, 'user/token');
-      if (error) {
+      try {
+        const { token, error } = await User(options, 'user/token');
+
+        if (error) {
+          setRedirect(true);
+          setMessage(error);
+          setEmail('');
+        } else if (token) {
+          setRedirect(true);
+          setEmail('');
+          localStorage.setItem('token', token);
+          localStorage.setItem('email', email);
+          navigate('/posts');
+        }
+      } catch (error) {
         setRedirect(true);
-        setMessage(error);
+        setMessage('An error occurred while processing your request.');
         setEmail('');
-      } else if (token) {
-        setRedirect(true);
-        setEmail('');
-        localStorage.setItem('token', token);
-        localStorage.setItem('email', email);
-        navigate('/posts');
       }
     }
-
-
   }
 
-  const validarEmail = (email) => {
+  const validateEmail = (email) => {
     let re = /\S+@\S+\.\S+/;
     return re.test(email);
   }
 
-  const date = () => {
+  const getGreeting = () => {
     const data = new Date();
     const dia = data.getDate();
     const ano = data.getFullYear();
     let month = data.getMonth();
+    
     if (month === 12) {
       month = 0;
     }
+
     const hs = data.getHours();
-    
     const horasNumericas = parseInt(hs, 10);
-    console.log(horasNumericas);
+
     let saudacao = '';
+
     if (horasNumericas >= 5 && horasNumericas <= 12) {
-      saudacao = 'Bom dia!';
+      saudacao = 'Good morning!';
     } else if (horasNumericas > 12 && horasNumericas <= 17) {
-      saudacao = 'Boa tarde';
+      saudacao = 'Good afternoon';
     } else {
-      saudacao = 'Boa noite';
+      saudacao = 'Good night';
     }
+
     if (dia < 10) {
       return `0${dia}/${month + 1}/${ano} - ${saudacao}`;
     } else {
@@ -92,7 +102,7 @@ const Home = () => {
                   <p className=" mb-5">Please enter your email!</p>
                   <div className="mb-3">
                     <Form>
-                      <h2>{date()}</h2>
+                      <h2>{getGreeting()}</h2>
                       <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label className="text-center">
                           Email address
@@ -101,7 +111,7 @@ const Home = () => {
                       </Form.Group>
 
                       <div className="d-grid">
-                        <Button variant="primary" type="button" onClick={requeredToken}>
+                        <Button variant="primary" type="button" onClick={requiredToken}>
                           Login
                         </Button>
                       </div>
@@ -121,11 +131,9 @@ const Home = () => {
             </Card>
           </Col>
         </Row>
-
       </Container>
-
     </div>
   )
 }
 
-export default Home
+export default Home;

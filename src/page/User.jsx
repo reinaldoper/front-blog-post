@@ -9,20 +9,20 @@ const Users = () => {
   AOS.init({
     duration: 2500,
   });
+
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [msg, setMessage] = useState('');
-
   const navigate = useNavigate();
 
   const createUser = async () => {
-    if (!validarEmail(email)) {
+    if (!validateEmail(email)) {
       setMessage('Email is not valid.');
       setEmail('');
     } else {
       const options = {
         method: "POST",
-        body: JSON.stringify({ email: email, name: name }),
+        body: JSON.stringify({ email, name }),
         headers: {
           'Content-Type': 'application/json',
         }
@@ -42,7 +42,7 @@ const Users = () => {
     }
   }
 
-  const validarEmail = (email) => {
+  const validateEmail = (email) => {
     let re = /\S+@\S+\.\S+/;
     return re.test(email);
   }
@@ -61,24 +61,15 @@ const Users = () => {
                   <div className="mb-3">
                     <Form>
                       <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label className="text-center">
-                          Email address
-                        </Form.Label>
+                        <Form.Label className="text-center">Email address</Form.Label>
                         <Form.Control type="email" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)} />
                       </Form.Group>
 
-                      <Form.Group
-                        className="mb-3"
-                        controlId="formBasicPassword"
-                      >
+                      <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Name</Form.Label>
                         <Form.Control type="text" placeholder="Enter name" value={name} onChange={(e) => setName(e.target.value)} />
                       </Form.Group>
-                      <Form.Group
-                        className="mb-3"
-                        controlId="formBasicCheckbox"
-                      >
-                      </Form.Group>
+
                       <div className="d-grid">
                         <Button variant="primary" type="button" onClick={createUser}>
                           Create User
@@ -87,19 +78,17 @@ const Users = () => {
                     </Form>
                     <div className="mt-3">
                       <p className="mb-0  text-center">
-                        <Link to="/" >Login</Link>
+                        <Link to="/">Login</Link>
                       </p>
                     </div>
                   </div>
                 </div>
-                {msg.length > 0 ? <h2>{msg}</h2> : null}
+                {msg.length > 0 && <h2>{msg}</h2>}
               </Card.Body>
             </Card>
           </Col>
         </Row>
-        
       </Container>
-      
     </div>
   )
 }

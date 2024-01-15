@@ -124,4 +124,4 @@ const MyPost = () => {
   )
 }
 
-export default MyPost
+export default MyPost;
