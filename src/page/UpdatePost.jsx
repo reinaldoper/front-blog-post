@@ -189,7 +189,7 @@ const UpdatePost = () => {
                 </div>
               ) : null}
             </div>
-          ) : <h1 style={{ display: 'flex', color: 'white', justifyContent: 'center', marginTop: '10%' }}>You do not have a post published.</h1>}
+          ) : <h1 style={{ display: 'flex', color: 'white', justifyContent: 'center', marginTop: '10%' }}>You haven't published any posts.</h1>}
         </>
       ) : <h1 style={{ display: 'flex', justifyContent: 'center', color: 'white' }}>
         <img className="reading" src={carregando} alt="carregando" />
