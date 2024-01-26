@@ -68,6 +68,7 @@ const Home = () => {
     if (month === 12) {
       month = 0;
     }
+  
 
     const hs = data.getHours();
     const horasNumericas = parseInt(hs, 10);
@@ -83,9 +84,9 @@ const Home = () => {
     }
 
     if (dia < 10) {
-      return `0${dia}/${month + 1}/${ano} - ${saudacao}`;
+      return `0${dia}/${month < 10 ? '0' + month + 1 : month + 1}/${ano} - ${saudacao}`;
     } else {
-      return `${dia}/${month + 1}/${ano} - ${saudacao}`;
+      return `${dia}/${month < 10 ? '0' + month + 1 : month + 1}/${ano} - ${saudacao}`;
     }
   }
 
